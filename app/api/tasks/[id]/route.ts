@@ -28,7 +28,7 @@ export async function GET(req: Request, { params }: RouteParams) {
     return NextResponse.json({ error: 'Task not found' }, { status: 404 });
   }
 
-  const [subtasksRes, sessionsRes] = await Promise.all([
+  const [subtasksRes, sessionsRes, agentEventsRes] = await Promise.all([
     supabase
       .from('subtasks')
       .select('*')
@@ -39,12 +39,18 @@ export async function GET(req: Request, { params }: RouteParams) {
       .select('*')
       .eq('task_id', id)
       .order('planned_start'),
+    supabase
+      .from('agent_events')
+      .select('*')
+      .eq('task_id', id)
+      .order('created_at'),
   ]);
 
   return NextResponse.json({
     task,
     subtasks: subtasksRes.data || [],
     sessions: sessionsRes.data || [],
+    agentEvents: agentEventsRes.data || [],
   });
 }
 

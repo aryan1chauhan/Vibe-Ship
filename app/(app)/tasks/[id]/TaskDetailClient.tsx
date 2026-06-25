@@ -1,16 +1,19 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { format } from 'date-fns';
 import {
   ArrowLeft,
-  Clock,
   CheckCircle2,
   AlertTriangle,
   Brain,
   Calendar,
   ListChecks,
 } from 'lucide-react';
+import { useTaskQuery } from '@/hooks/useTasks';
+import { useRealtime } from '@/hooks/useRealtime';
+import { AgentThinkingLog } from '@/components/agent/AgentThinkingLog';
 import type { Task, Subtask, SprintSession, AgentEvent } from '@/types/database';
 
 interface TaskDetailClientProps {
@@ -31,20 +34,43 @@ const statusColors: Record<string, string> = {
 };
 
 export function TaskDetailClient({
-  task,
-  subtasks,
-  sessions,
-  agentEvents,
+  task: initialTask,
+  subtasks: initialSubtasks,
+  sessions: initialSessions,
+  agentEvents: initialAgentEvents,
 }: TaskDetailClientProps) {
-  const completedSubtasks = subtasks.filter(
-    (s) => s.status === 'completed'
-  ).length;
-  const progress =
-    subtasks.length > 0 ? (completedSubtasks / subtasks.length) * 100 : 0;
+  useRealtime(['tasks', 'sprint_sessions', 'agent_events']);
+  const { data } = useTaskQuery(initialTask.id);
+  const [updatingSessionId, setUpdatingSessionId] = useState<string | null>(null);
+
+  const task = (data as any)?.task ?? initialTask;
+  const subtasks = (data as any)?.subtasks ?? initialSubtasks;
+  const sessions = (data as any)?.sessions ?? initialSessions;
+  const agentEvents = (data as any)?.agentEvents ?? initialAgentEvents;
+
+  const completedSubtasks = subtasks.filter((s: Subtask) => s.status === 'completed').length;
+  const progress = subtasks.length > 0 ? (completedSubtasks / subtasks.length) * 100 : 0;
+
+  const handleUpdateSessionStatus = async (sessionId: string, newStatus: string) => {
+    setUpdatingSessionId(sessionId);
+    try {
+      const res = await fetch(`/api/sessions/${sessionId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!res.ok) {
+        throw new Error('Failed to update session');
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setUpdatingSessionId(null);
+    }
+  };
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {}
       <Link
         href="/tasks"
         className="inline-flex items-center gap-1 text-sm transition-colors"
@@ -54,7 +80,6 @@ export function TaskDetailClient({
         Back to tasks
       </Link>
 
-      {}
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-bold">{task.title}</h1>
@@ -67,9 +92,7 @@ export function TaskDetailClient({
             </p>
           )}
           <div className="flex items-center gap-4 mt-3">
-            <span
-              className={`badge badge-${task.priority}`}
-            >
+            <span className={`badge badge-${task.priority}`}>
               {task.priority}
             </span>
             <span
@@ -90,10 +113,9 @@ export function TaskDetailClient({
           </div>
         </div>
 
-        {}
         {task.ai_risk_level !== 'low' && (
           <div
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm shrink-0"
             style={{
               background:
                 task.ai_risk_level === 'critical'
@@ -116,7 +138,6 @@ export function TaskDetailClient({
         )}
       </div>
 
-      {}
       {subtasks.length > 0 && (
         <div>
           <div className="flex justify-between text-sm mb-2">
@@ -140,8 +161,7 @@ export function TaskDetailClient({
         </div>
       )}
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {}
+      <div className="grid md:grid-cols-3 gap-6 font-sans">
         <div className="md:col-span-2 space-y-4">
           <h2 className="text-lg font-semibold flex items-center gap-2">
             <ListChecks className="w-5 h-5" style={{ color: 'var(--primary-light)' }} />
@@ -156,7 +176,7 @@ export function TaskDetailClient({
             </div>
           ) : (
             <div className="space-y-2">
-              {subtasks.map((subtask, i) => (
+              {subtasks.map((subtask: Subtask, i: number) => (
                 <div
                   key={subtask.id}
                   className="glass p-4 flex items-center gap-3 animate-fade-in"
@@ -203,7 +223,6 @@ export function TaskDetailClient({
             </div>
           )}
 
-          {}
           {sessions.length > 0 && (
             <>
               <h2 className="text-lg font-semibold flex items-center gap-2 mt-8">
@@ -211,7 +230,7 @@ export function TaskDetailClient({
                 Sprint Schedule
               </h2>
               <div className="space-y-2">
-                {sessions.map((session, i) => (
+                {sessions.map((session: SprintSession, i: number) => (
                   <div
                     key={session.id}
                     className="glass p-4 flex items-center justify-between animate-fade-in"
@@ -221,15 +240,12 @@ export function TaskDetailClient({
                       <div
                         className="w-2 h-2 rounded-full"
                         style={{
-                          background: statusColors[session.status],
+                          background: statusColors[session.status] || 'var(--foreground-muted)',
                         }}
                       />
                       <div>
                         <p className="text-sm font-medium">
-                          {format(
-                            new Date(session.planned_start),
-                            'EEE, MMM d'
-                          )}
+                          {format(new Date(session.planned_start), 'EEE, MMM d')}
                         </p>
                         <p
                           className="text-xs"
@@ -240,11 +256,31 @@ export function TaskDetailClient({
                         </p>
                       </div>
                     </div>
-                    <span
-                      className="badge badge-status text-xs"
-                    >
-                      {session.status}
-                    </span>
+                    <div className="flex items-center gap-3">
+                      {session.status === 'planned' && (
+                        <div className="flex items-center gap-1.5 mr-2">
+                          <button
+                            onClick={() => handleUpdateSessionStatus(session.id, 'completed')}
+                            disabled={updatingSessionId !== null}
+                            className="p-1 rounded bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/20 cursor-pointer transition-all"
+                            title="Mark Complete"
+                          >
+                            ✓
+                          </button>
+                          <button
+                            onClick={() => handleUpdateSessionStatus(session.id, 'missed')}
+                            disabled={updatingSessionId !== null}
+                            className="p-1 rounded bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 cursor-pointer transition-all"
+                            title="Mark Missed (Trigger Replan)"
+                          >
+                            ✗
+                          </button>
+                        </div>
+                      )}
+                      <span className="badge badge-status text-xs">
+                        {session.status}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -252,46 +288,12 @@ export function TaskDetailClient({
           )}
         </div>
 
-        {}
         <div>
           <h2 className="text-lg font-semibold flex items-center gap-2 mb-4">
             <Brain className="w-5 h-5" style={{ color: 'var(--primary-light)' }} />
             Agent Log
           </h2>
-
-          {agentEvents.length === 0 ? (
-            <div className="glass p-4">
-              <p
-                className="text-sm"
-                style={{ color: 'var(--foreground-muted)' }}
-              >
-                Agent events will appear here once planning is triggered.
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              {agentEvents.map((event, i) => (
-                <div
-                  key={event.id}
-                  className="glass p-3 text-xs font-mono animate-slide-in"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: 'var(--primary-light)' }}
-                    />
-                    <span style={{ color: 'var(--accent-light)' }}>
-                      {event.tool_called || event.event_type}
-                    </span>
-                  </div>
-                  <span style={{ color: 'var(--foreground-subtle)' }}>
-                    {format(new Date(event.created_at), 'h:mm:ss a')}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
+          <AgentThinkingLog events={agentEvents} />
         </div>
       </div>
     </div>

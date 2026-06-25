@@ -15,7 +15,12 @@ export type AgentEventType =
   | 'session_missed'
   | 'risk_detected'
   | 'task_completed'
-  | 'priority_updated';
+  | 'priority_updated'
+  | 'thinking_start'
+  | 'tool_call'
+  | 'tool_result'
+  | 'thinking_complete'
+  | 'error';
 
 
 

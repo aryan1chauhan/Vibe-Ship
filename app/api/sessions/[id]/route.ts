@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { runReplanLoop } from '@/lib/agent';
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -53,10 +54,22 @@ export async function PATCH(req: Request, { params }: RouteParams) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  
-  
-  
-  
+  if (status === 'missed') {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', user.id)
+      .single();
+
+    const userPrefs = {
+      daily_available_hours: profile?.daily_available_hours ?? 4,
+      work_start_hour: profile?.work_start_hour ?? 9,
+      work_end_hour: profile?.work_end_hour ?? 22,
+      timezone: profile?.timezone ?? 'Asia/Kolkata',
+    };
+
+    runReplanLoop(supabase, session.task_id, user.id, userPrefs);
+  }
 
   return NextResponse.json({ session });
 }

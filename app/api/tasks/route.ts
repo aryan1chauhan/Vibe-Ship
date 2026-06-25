@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { runAgentLoop } from '@/lib/agent';
 
 
 export async function GET() {
@@ -62,8 +63,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  
-  
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  const userPrefs = {
+    daily_available_hours: profile?.daily_available_hours ?? 4,
+    work_start_hour: profile?.work_start_hour ?? 9,
+    work_end_hour: profile?.work_end_hour ?? 22,
+    timezone: profile?.timezone ?? 'Asia/Kolkata',
+  };
+
+  runAgentLoop(supabase, task.id, user.id, userPrefs);
 
   return NextResponse.json({ task }, { status: 201 });
 }

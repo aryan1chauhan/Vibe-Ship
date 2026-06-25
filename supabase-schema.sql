@@ -128,9 +128,35 @@ CREATE TRIGGER on_auth_user_created
 
 
 
-ALTER PUBLICATION supabase_realtime ADD TABLE sprint_sessions;
-ALTER PUBLICATION supabase_realtime ADD TABLE agent_events;
-ALTER PUBLICATION supabase_realtime ADD TABLE tasks;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_publication_tables
+    WHERE pubname = 'supabase_realtime' AND tablename = 'sprint_sessions'
+  ) THEN
+    ALTER PUBLICATION supabase_realtime ADD TABLE sprint_sessions;
+  END IF;
+END $$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_publication_tables
+    WHERE pubname = 'supabase_realtime' AND tablename = 'agent_events'
+  ) THEN
+    ALTER PUBLICATION supabase_realtime ADD TABLE agent_events;
+  END IF;
+END $$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_publication_tables
+    WHERE pubname = 'supabase_realtime' AND tablename = 'tasks'
+  ) THEN
+    ALTER PUBLICATION supabase_realtime ADD TABLE tasks;
+  END IF;
+END $$;
 
 
 

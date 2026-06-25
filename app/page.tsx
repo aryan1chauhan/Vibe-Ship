@@ -1,65 +1,346 @@
-import Image from "next/image";
+import Link from 'next/link';
+import {
+  Zap,
+  Brain,
+  Calendar,
+  RefreshCw,
+  ArrowRight,
+  Shield,
+  Clock,
+  TrendingUp,
+} from 'lucide-react';
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
+      {/* Nav */}
+      <nav
+        className="fixed top-0 w-full z-50 border-b"
+        style={{
+          background: 'rgba(9, 9, 11, 0.8)',
+          backdropFilter: 'blur(12px)',
+          borderColor: 'var(--border)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{ background: 'var(--gradient-primary)' }}
+            >
+              <Zap className="w-4 h-4 text-white" />
+            </div>
+            <span className="font-bold text-lg">CrunchAI</span>
+          </div>
+          <Link
+            href="/login"
+            className="btn-primary text-sm"
+            style={{ padding: '8px 20px' }}
+          >
+            Get Started <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background effects */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(800px circle at 50% 20%, rgba(124, 58, 237, 0.12), transparent 50%)',
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div
+          className="absolute top-1/4 -left-1/4 w-96 h-96 rounded-full pointer-events-none"
+          style={{
+            background: 'rgba(6, 182, 212, 0.05)',
+            filter: 'blur(100px)',
+          }}
+        />
+
+        <div className="max-w-4xl mx-auto text-center relative">
+          {/* Badge */}
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-8 animate-fade-in"
+            style={{
+              background: 'var(--primary-glow)',
+              color: 'var(--primary-light)',
+              border: '1px solid rgba(124, 58, 237, 0.3)',
+            }}
+          >
+            <Brain className="w-4 h-4" />
+            Powered by Gemini 2.5 · Truly Agentic AI
+          </div>
+
+          <h1
+            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in"
+            style={{ animationDelay: '0.1s' }}
+          >
+            Stop procrastinating.
+            <br />
+            <span className="gradient-text">Start crunching.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+
+          <p
+            className="text-xl md:text-2xl max-w-2xl mx-auto mb-10 animate-fade-in leading-relaxed"
+            style={{
+              color: 'var(--foreground-muted)',
+              animationDelay: '0.2s',
+            }}
+          >
+            CrunchAI is an AI agent that breaks down your tasks, builds sprint
+            plans, and{' '}
+            <span style={{ color: 'var(--accent-light)' }}>
+              automatically replans
+            </span>{' '}
+            when life happens.
+          </p>
+
+          <div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in"
+            style={{ animationDelay: '0.3s' }}
+          >
+            <Link
+              href="/login"
+              className="btn-primary text-base"
+              style={{
+                padding: '14px 32px',
+                fontSize: '1rem',
+                borderRadius: 'var(--radius-xl)',
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Start Planning Free
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <span
+              className="text-sm"
+              style={{ color: 'var(--foreground-subtle)' }}
             >
-              Learning
-            </a>{" "}
-            center.
+              No credit card · Free forever
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              An agent, not a{' '}
+              <span style={{ color: 'var(--foreground-subtle)' }}>
+                reminder app
+              </span>
+            </h2>
+            <p style={{ color: 'var(--foreground-muted)' }} className="text-lg">
+              CrunchAI doesn&apos;t just remind you. It thinks, plans, and
+              adapts.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Brain,
+                title: 'Agentic Planning',
+                description:
+                  'The AI calls multiple tools in sequence — breaking tasks into subtasks, estimating effort, scheduling sessions, and assessing risk. Real multi-step reasoning.',
+                color: 'var(--primary)',
+                glow: 'var(--primary-glow)',
+              },
+              {
+                icon: Calendar,
+                title: 'Smart Scheduling',
+                description:
+                  'Maps your work into time blocks that respect your availability. No marathon sessions. Proper breaks. Sessions fit your real life.',
+                color: 'var(--accent)',
+                glow: 'rgba(6, 182, 212, 0.15)',
+              },
+              {
+                icon: RefreshCw,
+                title: 'Auto-Replan',
+                description:
+                  'Missed a session? The agent fires automatically — compresses remaining work, re-schedules, and flags new risks. Zero effort from you.',
+                color: 'var(--success)',
+                glow: 'rgba(16, 185, 129, 0.15)',
+              },
+            ].map(({ icon: Icon, title, description, color, glow }) => (
+              <div
+                key={title}
+                className="glass glass-hover p-6 transition-all duration-300"
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                  style={{ background: glow }}
+                >
+                  <Icon className="w-6 h-6" style={{ color }} />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: 'var(--foreground-muted)' }}
+                >
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Agent demo section */}
+      <section
+        className="py-20 px-6"
+        style={{ background: 'var(--background-secondary)' }}
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Watch the agent <span className="gradient-text">think</span>
+            </h2>
+            <p style={{ color: 'var(--foreground-muted)' }} className="text-lg">
+              Every tool call is visible. You see exactly how decisions are made.
+            </p>
+          </div>
+
+          {/* Mock agent thinking log */}
+          <div
+            className="glass p-6 font-mono text-sm space-y-3"
+            style={{ maxWidth: '600px', margin: '0 auto' }}
+          >
+            {[
+              {
+                step: 1,
+                tool: 'break_into_subtasks',
+                result: '→ 5 subtasks created',
+              },
+              {
+                step: 2,
+                tool: 'estimate_effort',
+                result: '→ Total: 6.5 hours',
+              },
+              {
+                step: 3,
+                tool: 'calculate_schedule',
+                result: '→ 4 sessions scheduled',
+              },
+              {
+                step: 4,
+                tool: 'assess_risk',
+                result: '→ ⚠️ Tight on June 28',
+              },
+            ].map(({ step, tool, result }, i) => (
+              <div
+                key={step}
+                className="flex items-start gap-3 animate-fade-in"
+                style={{ animationDelay: `${i * 0.15}s` }}
+              >
+                <span
+                  className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                  style={{
+                    background: 'var(--primary-glow)',
+                    color: 'var(--primary-light)',
+                  }}
+                >
+                  {step}
+                </span>
+                <div>
+                  <span style={{ color: 'var(--accent-light)' }}>{tool}()</span>
+                  <span
+                    className="ml-2"
+                    style={{ color: 'var(--foreground-muted)' }}
+                  >
+                    {result}
+                  </span>
+                </div>
+              </div>
+            ))}
+            <div className="pt-2 border-t" style={{ borderColor: 'var(--border)' }}>
+              <span style={{ color: 'var(--success-light)' }}>
+                ✓ Sprint plan ready
+              </span>
+              <span
+                className="ml-2"
+                style={{ color: 'var(--foreground-subtle)' }}
+              >
+                (2.3s)
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: '6', label: 'Agent Tools', icon: Brain },
+              { value: '<10s', label: 'Plan Generation', icon: Clock },
+              { value: '100%', label: 'Auto-Replan', icon: RefreshCw },
+              { value: 'Free', label: 'Forever', icon: Shield },
+            ].map(({ value, label, icon: Icon }) => (
+              <div key={label} className="text-center">
+                <Icon
+                  className="w-5 h-5 mx-auto mb-2"
+                  style={{ color: 'var(--foreground-subtle)' }}
+                />
+                <div className="text-2xl font-bold gradient-text">{value}</div>
+                <div
+                  className="text-sm mt-1"
+                  style={{ color: 'var(--foreground-muted)' }}
+                >
+                  {label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to stop winging it?
+          </h2>
+          <p
+            className="text-lg mb-8"
+            style={{ color: 'var(--foreground-muted)' }}
+          >
+            Let an AI agent handle the planning so you can focus on doing.
+          </p>
+          <Link
+            href="/login"
+            className="btn-primary text-base"
+            style={{
+              padding: '14px 32px',
+              fontSize: '1rem',
+              borderRadius: 'var(--radius-xl)',
+            }}
+          >
+            Get Started Free <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer
+        className="py-8 px-6 border-t"
+        style={{ borderColor: 'var(--border)' }}
+      >
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Zap className="w-4 h-4" style={{ color: 'var(--primary)' }} />
+            <span className="text-sm font-medium">CrunchAI</span>
+          </div>
+          <p className="text-xs" style={{ color: 'var(--foreground-subtle)' }}>
+            Built for BlockseBlock Hackathon 2025
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }

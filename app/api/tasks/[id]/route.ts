@@ -5,7 +5,7 @@ interface RouteParams {
   params: Promise<{ id: string }>;
 }
 
-// GET /api/tasks/[id] — Fetch single task with subtasks + sessions
+
 export async function GET(req: Request, { params }: RouteParams) {
   const { id } = await params;
   const supabase = await createClient();
@@ -48,7 +48,7 @@ export async function GET(req: Request, { params }: RouteParams) {
   });
 }
 
-// PATCH /api/tasks/[id] — Update task status/priority
+
 export async function PATCH(req: Request, { params }: RouteParams) {
   const { id } = await params;
   const supabase = await createClient();
@@ -91,7 +91,7 @@ export async function PATCH(req: Request, { params }: RouteParams) {
   return NextResponse.json({ task });
 }
 
-// DELETE /api/tasks/[id] — Delete task
+
 export async function DELETE(req: Request, { params }: RouteParams) {
   const { id } = await params;
   const supabase = await createClient();

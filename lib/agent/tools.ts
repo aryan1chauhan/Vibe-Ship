@@ -1,7 +1,7 @@
-// ============================================
-// CrunchAI — Agent Tool Definitions
-// These are the 6 tools Gemini can call
-// ============================================
+
+
+
+
 
 import { SchemaType } from '@google/generative-ai';
 
@@ -217,7 +217,7 @@ export const AGENT_TOOLS = [
   },
 ];
 
-// Tool name type for type safety
+
 export type AgentToolName =
   | 'break_into_subtasks'
   | 'estimate_effort'

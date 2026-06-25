@@ -1,7 +1,7 @@
 'use client';
 
 interface ProgressRingProps {
-  progress: number; // 0-100
+  progress: number; 
   size?: number;
   strokeWidth?: number;
   label?: string;
@@ -21,7 +21,7 @@ export function ProgressRing({
     <div className="flex flex-col items-center gap-2">
       <div className="relative" style={{ width: size, height: size }}>
         <svg width={size} height={size} className="-rotate-90">
-          {/* Background circle */}
+          {}
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -30,7 +30,7 @@ export function ProgressRing({
             stroke="var(--surface)"
             strokeWidth={strokeWidth}
           />
-          {/* Progress circle */}
+          {}
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -56,7 +56,7 @@ export function ProgressRing({
             </linearGradient>
           </defs>
         </svg>
-        {/* Center text */}
+        {}
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-2xl font-bold">{Math.round(progress)}%</span>
         </div>

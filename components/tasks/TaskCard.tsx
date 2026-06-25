@@ -37,7 +37,7 @@ export function TaskCard({ task }: TaskCardProps) {
   const status = statusConfig[task.status] || statusConfig.planned;
   const StatusIcon = status.icon;
 
-  const completedSubtasks = 0; // Will be computed from actual data
+  const completedSubtasks = 0; 
   const totalSubtasks = 0;
   const progress = totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
@@ -67,10 +67,10 @@ export function TaskCard({ task }: TaskCardProps) {
       </div>
 
       <div className="flex items-center gap-3 flex-wrap">
-        {/* Priority badge */}
+        {}
         <span className={`badge ${priority.class}`}>{priority.label}</span>
 
-        {/* Status */}
+        {}
         <span
           className="flex items-center gap-1 text-xs font-medium"
           style={{ color: status.color }}
@@ -79,7 +79,7 @@ export function TaskCard({ task }: TaskCardProps) {
           {status.label}
         </span>
 
-        {/* Deadline */}
+        {}
         <span
           className="flex items-center gap-1 text-xs"
           style={{
@@ -92,7 +92,7 @@ export function TaskCard({ task }: TaskCardProps) {
             : `Due ${formatDistanceToNow(deadline, { addSuffix: true })}`}
         </span>
 
-        {/* Estimated hours */}
+        {}
         {task.estimated_hours && (
           <span
             className="text-xs"
@@ -103,7 +103,7 @@ export function TaskCard({ task }: TaskCardProps) {
         )}
       </div>
 
-      {/* Risk indicator */}
+      {}
       {task.ai_risk_level !== 'low' && (
         <div
           className="mt-3 flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg"
@@ -123,7 +123,7 @@ export function TaskCard({ task }: TaskCardProps) {
         </div>
       )}
 
-      {/* Progress bar */}
+      {}
       {totalSubtasks > 0 && (
         <div className="mt-3">
           <div className="flex justify-between text-xs mb-1">

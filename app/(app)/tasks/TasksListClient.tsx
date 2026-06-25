@@ -47,7 +47,7 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* Header */}
+      {}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Tasks</h1>
@@ -64,7 +64,7 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
         </Link>
       </div>
 
-      {/* Filters */}
+      {}
       <div className="flex items-center gap-2">
         {filterOptions.map(({ value, label, count }) => (
           <button
@@ -94,7 +94,7 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
         ))}
       </div>
 
-      {/* Task list */}
+      {}
       {filteredTasks.length === 0 ? (
         <div className="glass p-12 text-center">
           <div

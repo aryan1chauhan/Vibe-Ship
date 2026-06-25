@@ -49,7 +49,7 @@ export default function NewTaskPage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
-      {/* Back link */}
+      {}
       <Link
         href="/tasks"
         className="inline-flex items-center gap-1 text-sm transition-colors"
@@ -59,7 +59,7 @@ export default function NewTaskPage() {
         Back to tasks
       </Link>
 
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-2xl font-bold">New Task</h1>
         <p
@@ -71,7 +71,7 @@ export default function NewTaskPage() {
         </p>
       </div>
 
-      {/* Form card */}
+      {}
       <div className="glass p-6">
         <NaturalLanguageInput onSubmit={handleSubmit} loading={loading} />
 

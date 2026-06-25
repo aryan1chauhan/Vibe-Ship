@@ -48,7 +48,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         borderColor: 'var(--border)',
       }}
     >
-      {/* Logo */}
+      {}
       <div
         className="h-16 flex items-center px-4 border-b shrink-0"
         style={{ borderColor: 'var(--border)' }}
@@ -68,7 +68,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         </div>
       </div>
 
-      {/* Nav links */}
+      {}
       <nav className="flex-1 py-4 px-3 space-y-1">
         {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
           const isActive = pathname.startsWith(href);
@@ -105,7 +105,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         })}
       </nav>
 
-      {/* Collapse toggle */}
+      {}
       <button
         onClick={() => setCollapsed(!collapsed)}
         className="mx-3 mb-2 p-2 rounded-lg transition-colors cursor-pointer"
@@ -127,7 +127,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         )}
       </button>
 
-      {/* User info */}
+      {}
       <div
         className="px-3 py-3 border-t shrink-0"
         style={{ borderColor: 'var(--border)' }}

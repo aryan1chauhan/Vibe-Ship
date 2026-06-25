@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query';
 import type { Task, TaskType } from '@/types/database';
 
-// Fetch all tasks
+
 export function useTasksQuery() {
   return useQuery<Task[]>({
     queryKey: ['tasks'],
@@ -20,7 +20,7 @@ export function useTasksQuery() {
   });
 }
 
-// Fetch single task with details
+
 export function useTaskQuery(id: string) {
   return useQuery({
     queryKey: ['tasks', id],
@@ -33,7 +33,7 @@ export function useTaskQuery(id: string) {
   });
 }
 
-// Create a new task
+
 export function useCreateTaskMutation() {
   const queryClient = useQueryClient();
 
@@ -61,7 +61,7 @@ export function useCreateTaskMutation() {
   });
 }
 
-// Update task
+
 export function useUpdateTaskMutation() {
   const queryClient = useQueryClient();
 
@@ -94,7 +94,7 @@ export function useUpdateTaskMutation() {
   });
 }
 
-// Delete task
+
 export function useDeleteTaskMutation() {
   const queryClient = useQueryClient();
 

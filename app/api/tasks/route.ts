@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 
-// GET /api/tasks — Fetch all tasks for authenticated user
+
 export async function GET() {
   const supabase = await createClient();
   const {
@@ -25,7 +25,7 @@ export async function GET() {
   return NextResponse.json({ tasks });
 }
 
-// POST /api/tasks — Create a new task
+
 export async function POST(req: Request) {
   const supabase = await createClient();
   const {
@@ -62,8 +62,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // TODO (Day 2): Trigger agent planning loop here
-  // await triggerAgentPlan(task.id, user.id);
+  
+  
 
   return NextResponse.json({ task }, { status: 201 });
 }

@@ -6,10 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 
 type RealtimeTable = 'tasks' | 'sprint_sessions' | 'agent_events';
 
-/**
- * Subscribe to Supabase realtime changes and invalidate relevant TanStack Query caches.
- * Call this once at the layout level.
- */
+
 export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions', 'agent_events']) {
   const queryClient = useQueryClient();
 

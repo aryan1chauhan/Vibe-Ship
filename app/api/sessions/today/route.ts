@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 
-// GET /api/sessions/today — Fetch today's sprint sessions
+
 export async function GET() {
   const supabase = await createClient();
   const {

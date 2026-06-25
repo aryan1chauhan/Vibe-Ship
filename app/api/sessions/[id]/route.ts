@@ -5,7 +5,7 @@ interface RouteParams {
   params: Promise<{ id: string }>;
 }
 
-// PATCH /api/sessions/[id] — Mark session complete or missed
+
 export async function PATCH(req: Request, { params }: RouteParams) {
   const { id } = await params;
   const supabase = await createClient();
@@ -53,10 +53,10 @@ export async function PATCH(req: Request, { params }: RouteParams) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // TODO (Day 2): If status === 'missed', trigger auto-replan
-  // if (status === 'missed') {
-  //   await triggerReplan(session.task_id, user.id);
-  // }
+  
+  
+  
+  
 
   return NextResponse.json({ session });
 }

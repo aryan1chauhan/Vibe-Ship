@@ -44,7 +44,7 @@ export function TaskDetailClient({
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Back */}
+      {}
       <Link
         href="/tasks"
         className="inline-flex items-center gap-1 text-sm transition-colors"
@@ -54,7 +54,7 @@ export function TaskDetailClient({
         Back to tasks
       </Link>
 
-      {/* Header */}
+      {}
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-bold">{task.title}</h1>
@@ -90,7 +90,7 @@ export function TaskDetailClient({
           </div>
         </div>
 
-        {/* Risk badge */}
+        {}
         {task.ai_risk_level !== 'low' && (
           <div
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
@@ -116,7 +116,7 @@ export function TaskDetailClient({
         )}
       </div>
 
-      {/* Progress bar */}
+      {}
       {subtasks.length > 0 && (
         <div>
           <div className="flex justify-between text-sm mb-2">
@@ -141,7 +141,7 @@ export function TaskDetailClient({
       )}
 
       <div className="grid md:grid-cols-3 gap-6">
-        {/* Subtasks */}
+        {}
         <div className="md:col-span-2 space-y-4">
           <h2 className="text-lg font-semibold flex items-center gap-2">
             <ListChecks className="w-5 h-5" style={{ color: 'var(--primary-light)' }} />
@@ -203,7 +203,7 @@ export function TaskDetailClient({
             </div>
           )}
 
-          {/* Sprint sessions timeline */}
+          {}
           {sessions.length > 0 && (
             <>
               <h2 className="text-lg font-semibold flex items-center gap-2 mt-8">
@@ -252,7 +252,7 @@ export function TaskDetailClient({
           )}
         </div>
 
-        {/* Agent thinking log */}
+        {}
         <div>
           <h2 className="text-lg font-semibold flex items-center gap-2 mb-4">
             <Brain className="w-5 h-5" style={{ color: 'var(--primary-light)' }} />

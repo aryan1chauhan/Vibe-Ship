@@ -13,7 +13,7 @@ import {
 export default function LandingPage() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      {/* Nav */}
+      {}
       <nav
         className="fixed top-0 w-full z-50 border-b"
         style={{
@@ -42,9 +42,9 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero */}
+      {}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        {/* Background effects */}
+        {}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -61,7 +61,7 @@ export default function LandingPage() {
         />
 
         <div className="max-w-4xl mx-auto text-center relative">
-          {/* Badge */}
+          {}
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-8 animate-fade-in"
             style={{
@@ -124,7 +124,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How it works */}
+      {}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -190,7 +190,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Agent demo section */}
+      {}
       <section
         className="py-20 px-6"
         style={{ background: 'var(--background-secondary)' }}
@@ -205,7 +205,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Mock agent thinking log */}
+          {}
           <div
             className="glass p-6 font-mono text-sm space-y-3"
             style={{ maxWidth: '600px', margin: '0 auto' }}
@@ -272,7 +272,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats */}
+      {}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -300,7 +300,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {}
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -326,7 +326,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
+      {}
       <footer
         className="py-8 px-6 border-t"
         style={{ borderColor: 'var(--border)' }}

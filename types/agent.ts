@@ -1,6 +1,6 @@
-// ============================================
-// CrunchAI — Agent Types
-// ============================================
+
+
+
 
 export interface ToolCall {
   name: string;
@@ -67,7 +67,7 @@ export interface DailyBrief {
   recommendation: string;
 }
 
-// Agent runner config
+
 export interface AgentConfig {
   maxIterations: number;
   model: string;

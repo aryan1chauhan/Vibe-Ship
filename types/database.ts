@@ -1,7 +1,7 @@
-// ============================================
-// CrunchAI — Database Types
-// Hand-written to match supabase-schema.sql
-// ============================================
+
+
+
+
 
 export type TaskType = 'assignment' | 'project' | 'exam' | 'personal' | 'work';
 export type TaskStatus = 'planned' | 'active' | 'completed' | 'missed' | 'replanned';
@@ -17,9 +17,9 @@ export type AgentEventType =
   | 'task_completed'
   | 'priority_updated';
 
-// -------------------------------------------
-// Row types
-// -------------------------------------------
+
+
+
 
 export interface Profile {
   id: string;
@@ -84,9 +84,9 @@ export interface AgentEvent {
   created_at: string;
 }
 
-// -------------------------------------------
-// Extended types (with relations)
-// -------------------------------------------
+
+
+
 
 export interface TaskWithSubtasks extends Task {
   subtasks: Subtask[];
@@ -102,9 +102,9 @@ export interface SessionWithTask extends SprintSession {
   subtask: Subtask;
 }
 
-// -------------------------------------------
-// Supabase generated DB type (manual)
-// -------------------------------------------
+
+
+
 
 export interface Database {
   public: {

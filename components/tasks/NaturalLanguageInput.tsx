@@ -47,13 +47,13 @@ export function NaturalLanguageInput({
     onSubmit({ title: title.trim(), description: description.trim(), deadline, taskType });
   };
 
-  // Get minimum datetime (now)
+  
   const now = new Date();
   const minDatetime = now.toISOString().slice(0, 16);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Main input */}
+      {}
       <div>
         <label
           className="flex items-center gap-2 text-sm font-medium mb-2"
@@ -74,7 +74,7 @@ export function NaturalLanguageInput({
         />
       </div>
 
-      {/* Description */}
+      {}
       <div>
         <label
           className="text-sm font-medium mb-2 block"
@@ -92,7 +92,7 @@ export function NaturalLanguageInput({
         />
       </div>
 
-      {/* Deadline + Type row */}
+      {}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label
@@ -148,7 +148,7 @@ export function NaturalLanguageInput({
         </div>
       </div>
 
-      {/* Submit */}
+      {}
       <button
         type="submit"
         disabled={loading || !title.trim() || !deadline}

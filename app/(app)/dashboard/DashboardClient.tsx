@@ -36,7 +36,7 @@ export function DashboardClient({
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Header */}
+      {}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">
@@ -60,7 +60,7 @@ export function DashboardClient({
         </Link>
       </div>
 
-      {/* Top stats row */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           {
@@ -118,9 +118,9 @@ export function DashboardClient({
         ))}
       </div>
 
-      {/* Main content grid */}
+      {}
       <div className="grid md:grid-cols-3 gap-6">
-        {/* Left column: Brief + Progress */}
+        {}
         <div className="space-y-6">
           <TodayBrief brief={null} />
           <div className="glass p-6 flex justify-center">
@@ -128,7 +128,7 @@ export function DashboardClient({
           </div>
         </div>
 
-        {/* Right column: Active tasks */}
+        {}
         <div className="md:col-span-2">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">Active Tasks</h2>
@@ -172,7 +172,7 @@ export function DashboardClient({
             </div>
           )}
 
-          {/* At-risk tasks */}
+          {}
           {atRiskTasks.length > 0 && (
             <div className="mt-6">
               <h2

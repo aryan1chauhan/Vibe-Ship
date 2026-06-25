@@ -14,6 +14,6 @@ export async function GET(request: Request) {
     }
   }
 
-  // Return the user to login page if code exchange fails
+  
   return NextResponse.redirect(`${origin}/login`);
 }

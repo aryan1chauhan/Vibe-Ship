@@ -29,7 +29,7 @@ export default function LoginPage() {
       className="min-h-screen flex items-center justify-center p-4"
       style={{ background: 'var(--background)' }}
     >
-      {/* Background glow */}
+      {}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
@@ -39,7 +39,7 @@ export default function LoginPage() {
       />
 
       <div className="w-full max-w-md relative animate-fade-in">
-        {/* Logo */}
+        {}
         <div className="text-center mb-8">
           <div
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4"
@@ -58,9 +58,9 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Login card */}
+        {}
         <div className="glass p-8">
-          {/* Features mini-list */}
+          {}
           <div className="space-y-3 mb-8">
             {[
               { icon: Brain, text: 'AI breaks tasks into sprint plans' },
@@ -87,7 +87,7 @@ export default function LoginPage() {
             ))}
           </div>
 
-          {/* Google login button */}
+          {}
           <button
             onClick={handleGoogleLogin}
             disabled={loading}

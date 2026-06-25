@@ -1,7 +1,7 @@
-// ============================================
-// CrunchAI — Gemini Client Setup
-// Stub for Day 1, full implementation on Day 2
-// ============================================
+
+
+
+
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 

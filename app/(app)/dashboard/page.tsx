@@ -12,14 +12,14 @@ export default async function DashboardPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Fetch tasks
+  
   const { data: tasks } = await supabase
     .from('tasks')
     .select('*')
     .eq('user_id', user!.id)
     .order('deadline', { ascending: true });
 
-  // Fetch today's sessions
+  
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const tomorrow = new Date(today);

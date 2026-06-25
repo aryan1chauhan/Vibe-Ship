@@ -1,6 +1,6 @@
-// ============================================
-// CrunchAI — Agent System Prompt
-// ============================================
+
+
+
 
 export const AGENT_SYSTEM_PROMPT = `You are CrunchAI, an intelligent time management agent for students and professionals who procrastinate.
 

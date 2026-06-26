@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 import { TaskDetailClient } from './TaskDetailClient';
 
+export const dynamic = 'force-dynamic';
+
 interface TaskDetailPageProps {
   params: Promise<{ id: string }>;
 }

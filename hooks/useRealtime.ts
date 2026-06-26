@@ -20,6 +20,7 @@ export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions
         { event: '*', schema: 'public', table: 'tasks' },
         () => {
           queryClient.invalidateQueries({ queryKey: ['tasks'] });
+          queryClient.invalidateQueries({ queryKey: ['agent-brief'] });
         }
       )
       .on(
@@ -28,6 +29,7 @@ export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions
         () => {
           queryClient.invalidateQueries({ queryKey: ['sessions'] });
           queryClient.invalidateQueries({ queryKey: ['tasks'] });
+          queryClient.invalidateQueries({ queryKey: ['agent-brief'] });
         }
       )
       .on(
@@ -36,6 +38,7 @@ export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions
         () => {
           queryClient.invalidateQueries({ queryKey: ['agent-events'] });
           queryClient.invalidateQueries({ queryKey: ['tasks'] });
+          queryClient.invalidateQueries({ queryKey: ['agent-brief'] });
         }
       )
       .subscribe();

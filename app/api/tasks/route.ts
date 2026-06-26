@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { runAgentLoop } from '@/lib/agent';
 
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const supabase = await createClient();
@@ -15,7 +16,7 @@ export async function GET() {
 
   const { data: tasks, error } = await supabase
     .from('tasks')
-    .select('*')
+    .select('*, subtasks(*)')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false });
 
@@ -25,7 +26,6 @@ export async function GET() {
 
   return NextResponse.json({ tasks });
 }
-
 
 export async function POST(req: Request) {
   const supabase = await createClient();

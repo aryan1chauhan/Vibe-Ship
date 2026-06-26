@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { runAgentLoop } from '@/lib/agent';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: Request) {
   try {
     const supabase = await createClient();

@@ -1,5 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { DashboardClient } from './DashboardClient';
+import { redirect } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Dashboard — CrunchAI',
@@ -12,14 +15,18 @@ export default async function DashboardPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  if (!user) {
+    redirect('/login');
+  }
+
   
   const { data: tasks } = await supabase
     .from('tasks')
-    .select('*')
+    .select('*, subtasks(*)')
     .eq('user_id', user!.id)
     .order('deadline', { ascending: true });
 
-  
+  // Fetch today's sessions
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const tomorrow = new Date(today);
@@ -27,7 +34,7 @@ export default async function DashboardPage() {
 
   const { data: todaySessions } = await supabase
     .from('sprint_sessions')
-    .select('*, tasks(title)')
+    .select('*, tasks(title), subtasks(title)')
     .eq('user_id', user!.id)
     .gte('planned_start', today.toISOString())
     .lt('planned_start', tomorrow.toISOString())

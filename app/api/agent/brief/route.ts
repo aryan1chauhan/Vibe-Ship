@@ -1,6 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { geminiModel } from '@/lib/gemini';
+
+export const dynamic = 'force-dynamic';
 import { SchemaType } from '@google/generative-ai';
 import { DAILY_BRIEF_PROMPT } from '@/lib/agent/prompts';
 

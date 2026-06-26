@@ -1,10 +1,4 @@
-
-
-
-
-
-
-CREATE TABLE profiles (
+CREATE TABLE IF NOT EXISTS profiles (
   id UUID REFERENCES auth.users(id) PRIMARY KEY,
   name TEXT,
   timezone TEXT DEFAULT 'Asia/Kolkata',
@@ -14,8 +8,7 @@ CREATE TABLE profiles (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-
-CREATE TABLE tasks (
+CREATE TABLE IF NOT EXISTS tasks (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   title TEXT NOT NULL,
@@ -36,8 +29,7 @@ CREATE TABLE tasks (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-
-CREATE TABLE subtasks (
+CREATE TABLE IF NOT EXISTS subtasks (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   task_id UUID REFERENCES tasks(id) ON DELETE CASCADE NOT NULL,
   title TEXT NOT NULL,
@@ -49,8 +41,7 @@ CREATE TABLE subtasks (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-
-CREATE TABLE sprint_sessions (
+CREATE TABLE IF NOT EXISTS sprint_sessions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   task_id UUID REFERENCES tasks(id) ON DELETE CASCADE NOT NULL,
@@ -66,8 +57,7 @@ CREATE TABLE sprint_sessions (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-
-CREATE TABLE agent_events (
+CREATE TABLE IF NOT EXISTS agent_events (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   task_id UUID REFERENCES tasks(id) ON DELETE CASCADE,
@@ -77,36 +67,43 @@ CREATE TABLE agent_events (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-
-
-
-
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE subtasks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE sprint_sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE agent_events ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Users own their profile" ON profiles
-  FOR ALL USING (auth.uid() = id);
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own their profile' AND tablename = 'profiles') THEN
+    CREATE POLICY "Users own their profile" ON profiles FOR ALL USING (auth.uid() = id);
+  END IF;
+END $$;
 
-CREATE POLICY "Users own their tasks" ON tasks
-  FOR ALL USING (auth.uid() = user_id);
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own their tasks' AND tablename = 'tasks') THEN
+    CREATE POLICY "Users own their tasks" ON tasks FOR ALL USING (auth.uid() = user_id);
+  END IF;
+END $$;
 
-CREATE POLICY "Users own their subtasks" ON subtasks
-  FOR ALL USING (
-    task_id IN (SELECT id FROM tasks WHERE user_id = auth.uid())
-  );
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own their subtasks' AND tablename = 'subtasks') THEN
+    CREATE POLICY "Users own their subtasks" ON subtasks FOR ALL USING (
+      task_id IN (SELECT id FROM tasks WHERE user_id = auth.uid())
+    );
+  END IF;
+END $$;
 
-CREATE POLICY "Users own their sessions" ON sprint_sessions
-  FOR ALL USING (auth.uid() = user_id);
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own their sessions' AND tablename = 'sprint_sessions') THEN
+    CREATE POLICY "Users own their sessions" ON sprint_sessions FOR ALL USING (auth.uid() = user_id);
+  END IF;
+END $$;
 
-CREATE POLICY "Users own their events" ON agent_events
-  FOR ALL USING (auth.uid() = user_id);
-
-
-
-
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own their events' AND tablename = 'agent_events') THEN
+    CREATE POLICY "Users own their events" ON agent_events FOR ALL USING (auth.uid() = user_id);
+  END IF;
+END $$;
 
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
@@ -120,13 +117,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
-
-
-
-
 
 DO $$
 BEGIN
@@ -158,16 +152,12 @@ BEGIN
   END IF;
 END $$;
 
-
-
-
-
-CREATE INDEX idx_tasks_user_id ON tasks(user_id);
-CREATE INDEX idx_tasks_status ON tasks(status);
-CREATE INDEX idx_tasks_deadline ON tasks(deadline);
-CREATE INDEX idx_subtasks_task_id ON subtasks(task_id);
-CREATE INDEX idx_sessions_user_id ON sprint_sessions(user_id);
-CREATE INDEX idx_sessions_task_id ON sprint_sessions(task_id);
-CREATE INDEX idx_sessions_planned_start ON sprint_sessions(planned_start);
-CREATE INDEX idx_sessions_status ON sprint_sessions(status);
-CREATE INDEX idx_agent_events_task_id ON agent_events(task_id);
+CREATE INDEX IF NOT EXISTS idx_tasks_user_id ON tasks(user_id);
+CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status);
+CREATE INDEX IF NOT EXISTS idx_tasks_deadline ON tasks(deadline);
+CREATE INDEX IF NOT EXISTS idx_subtasks_task_id ON subtasks(task_id);
+CREATE INDEX IF NOT EXISTS idx_sessions_user_id ON sprint_sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_sessions_task_id ON sprint_sessions(task_id);
+CREATE INDEX IF NOT EXISTS idx_sessions_planned_start ON sprint_sessions(planned_start);
+CREATE INDEX IF NOT EXISTS idx_sessions_status ON sprint_sessions(status);
+CREATE INDEX IF NOT EXISTS idx_agent_events_task_id ON agent_events(task_id);

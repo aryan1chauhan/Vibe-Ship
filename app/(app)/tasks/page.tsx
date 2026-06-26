@@ -1,5 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { TasksListClient } from './TasksListClient';
+import { redirect } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Tasks — CrunchAI',
@@ -12,11 +15,15 @@ export default async function TasksPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  if (!user) {
+    redirect('/login');
+  }
+
   const { data: tasks } = await supabase
     .from('tasks')
-    .select('*')
+    .select('*, subtasks(*)')
     .eq('user_id', user!.id)
-    .order('created_at', { ascending: false });
+    .order('deadline', { ascending: true });
 
   return <TasksListClient tasks={tasks || []} />;
 }

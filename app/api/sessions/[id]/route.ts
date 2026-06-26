@@ -2,10 +2,11 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { runReplanLoop } from '@/lib/agent';
 
+export const dynamic = 'force-dynamic';
+
 interface RouteParams {
   params: Promise<{ id: string }>;
 }
-
 
 export async function PATCH(req: Request, { params }: RouteParams) {
   const { id } = await params;

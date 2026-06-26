@@ -7,13 +7,21 @@ import type { Task } from '@/types/database';
 import { useState } from 'react';
 
 interface TasksListClientProps {
-  tasks: Task[];
+  tasks: any[];
 }
 
 type FilterStatus = 'all' | 'active' | 'completed' | 'missed';
 
 export function TasksListClient({ tasks }: TasksListClientProps) {
   const [filter, setFilter] = useState<FilterStatus>('all');
+
+  const activeTasksCount = tasks.filter(
+    (t) => t.status === 'planned' || t.status === 'active' || t.status === 'replanned'
+  ).length;
+  const completedTasksCount = tasks.filter((t) => t.status === 'completed').length;
+  const atRiskTasksCount = tasks.filter(
+    (t) => (t.ai_risk_level === 'high' || t.ai_risk_level === 'critical') && t.status !== 'completed'
+  ).length;
 
   const filteredTasks = tasks.filter((task) => {
     if (filter === 'all') return true;
@@ -24,19 +32,21 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
     return true;
   });
 
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
+  });
+
   const filterOptions: { value: FilterStatus; label: string; count: number }[] = [
     { value: 'all', label: 'All', count: tasks.length },
     {
       value: 'active',
       label: 'Active',
-      count: tasks.filter(
-        (t) => t.status === 'planned' || t.status === 'active' || t.status === 'replanned'
-      ).length,
+      count: activeTasksCount,
     },
     {
       value: 'completed',
       label: 'Completed',
-      count: tasks.filter((t) => t.status === 'completed').length,
+      count: completedTasksCount,
     },
     {
       value: 'missed',
@@ -47,7 +57,7 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {}
+      {/* Title */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Tasks</h1>
@@ -64,7 +74,23 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
         </Link>
       </div>
 
-      {}
+      {/* Stats Summary Bar */}
+      <div className="grid grid-cols-3 gap-4">
+        <div className="glass p-4 rounded-xl">
+          <div className="text-xs uppercase tracking-wider font-semibold text-zinc-500">Active Tasks</div>
+          <div className="text-2xl font-bold text-white mt-1">{activeTasksCount}</div>
+        </div>
+        <div className="glass p-4 rounded-xl">
+          <div className="text-xs uppercase tracking-wider font-semibold text-zinc-500">Completed</div>
+          <div className="text-2xl font-bold text-emerald-400 mt-1">{completedTasksCount}</div>
+        </div>
+        <div className="glass p-4 rounded-xl">
+          <div className="text-xs uppercase tracking-wider font-semibold text-zinc-500">At Risk</div>
+          <div className="text-2xl font-bold text-amber-400 mt-1">{atRiskTasksCount}</div>
+        </div>
+      </div>
+
+      {/* Filter Tabs */}
       <div className="flex items-center gap-2">
         {filterOptions.map(({ value, label, count }) => (
           <button
@@ -94,8 +120,8 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
         ))}
       </div>
 
-      {}
-      {filteredTasks.length === 0 ? (
+      {/* Task List */}
+      {sortedTasks.length === 0 ? (
         <div className="glass p-12 text-center">
           <div
             className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"
@@ -128,7 +154,7 @@ export function TasksListClient({ tasks }: TasksListClientProps) {
         </div>
       ) : (
         <div className="space-y-3">
-          {filteredTasks.map((task) => (
+          {sortedTasks.map((task) => (
             <TaskCard key={task.id} task={task} />
           ))}
         </div>

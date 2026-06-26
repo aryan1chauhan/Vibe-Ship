@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation';
 import { Sidebar } from '@/components/ui/Sidebar';
 import { Providers } from '../providers';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AppLayout({
   children,
 }: {
@@ -31,7 +33,7 @@ export default async function AppLayout({
           userEmail={user.email}
           userAvatar={userAvatar}
         />
-        <main className="flex-1 min-h-screen overflow-auto">
+        <main className="flex-1 min-h-screen overflow-auto pb-20 md:pb-0">
           <div className="max-w-6xl mx-auto px-6 py-8">{children}</div>
         </main>
       </div>

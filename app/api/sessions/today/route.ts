@@ -1,6 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 
 export async function GET() {
   const supabase = await createClient();
@@ -19,7 +21,7 @@ export async function GET() {
 
   const { data: sessions, error } = await supabase
     .from('sprint_sessions')
-    .select('*, tasks(title, priority, ai_risk_level)')
+    .select('*, tasks(title, priority, ai_risk_level), subtasks(title)')
     .eq('user_id', user.id)
     .gte('planned_start', today.toISOString())
     .lt('planned_start', tomorrow.toISOString())

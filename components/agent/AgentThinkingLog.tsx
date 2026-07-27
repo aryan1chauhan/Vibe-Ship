@@ -52,7 +52,7 @@ export function AgentThinkingLog({ events }: AgentThinkingLogProps) {
       </div>
 
       <div 
-        className="p-4 font-mono text-xs space-y-4 max-h-[400px] overflow-y-auto"
+        className="p-4 font-mono text-xs space-y-4 max-h-100 overflow-y-auto"
         style={{ background: '#0a0514' }}
       >
         {events.length === 0 ? (

@@ -118,7 +118,7 @@ export function FocusClient() {
           <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto bg-zinc-900 border border-zinc-800">
             <Target className="w-10 h-10 text-zinc-600" />
           </div>
-          <h2 className="text-2xl font-bold text-white font-extrabold">All Done For Today!</h2>
+          <h2 className="text-2xl font-bold text-white">All Done For Today!</h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
             You don't have any pending sprint sessions scheduled for today. Great job! Or add a new task to generate a new plan.
           </p>
@@ -165,7 +165,7 @@ export function FocusClient() {
         /* Distraction-Free Active Focus Mode Overlay */
         <div className="focus-fullscreen text-center space-y-8 p-8 relative overflow-hidden">
           {/* Subtle decorative glowing line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-linear-to-r from-cyan-500 via-indigo-500 to-purple-500" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-cyan-500 via-indigo-500 to-purple-500" />
           
           {/* subtle radial orbs */}
           <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-cyan-500/5 blur-[100px] pointer-events-none" />
@@ -237,7 +237,7 @@ export function FocusClient() {
       ) : (
         /* Upcoming Session Overview */
         <div className="w-full max-w-xl text-center space-y-6 p-8 rounded-3xl border border-zinc-800 bg-zinc-950/40 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-linear-to-r from-indigo-500 to-cyan-500" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-indigo-500 to-cyan-500" />
           
           <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto bg-indigo-500/10">
             <Play className="w-8 h-8 text-indigo-400 fill-indigo-400/20" />

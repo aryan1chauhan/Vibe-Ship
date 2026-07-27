@@ -53,7 +53,7 @@ export function TodayBrief({ brief, loading }: TodayBriefProps) {
       }}
     >
       {/* Decorative top line */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500" />
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-orange-500 via-amber-500 to-rose-500" />
 
       {/* Subtle top-right background glow */}
       <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-indigo-500/10 blur-xl pointer-events-none" />

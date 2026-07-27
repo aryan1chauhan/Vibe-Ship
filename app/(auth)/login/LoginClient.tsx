@@ -38,7 +38,7 @@ export function LoginClient() {
       <div className="w-full max-w-md relative animate-fade-in">
         <div className="text-center mb-8">
           <div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 bg-gradient-to-tr from-indigo-500 to-cyan-500 shadow-lg shadow-indigo-500/25"
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 bg-linear-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-lg shadow-orange-500/25"
           >
             <Zap className="w-8 h-8 text-white" />
           </div>

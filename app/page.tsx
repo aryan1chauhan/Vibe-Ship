@@ -138,7 +138,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen text-zinc-100 flex flex-col justify-between" style={{ background: 'var(--background)' }}>
       {/* Background decorations */}
-      <div className="absolute top-0 inset-x-0 h-[600px] pointer-events-none overflow-hidden">
+      <div className="absolute top-0 inset-x-0 h-150 pointer-events-none overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -146,7 +146,7 @@ export default function LandingPage() {
           }}
         />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-amber-500/5 blur-[120px] animate-float" />
-        <div className="absolute top-1/3 right-1/4 w-[35rem] h-[35rem] rounded-full bg-rose-500/5 blur-[150px] animate-float" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/3 right-1/4 w-140 h-140 rounded-full bg-rose-500/5 blur-[150px] animate-float" style={{ animationDelay: '-3s' }} />
       </div>
 
       {/* Navigation */}
@@ -161,7 +161,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div
-              className="w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-md shadow-orange-500/20"
+              className="w-8 h-8 rounded-xl flex items-center justify-center bg-linear-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-md shadow-orange-500/20"
             >
               <Zap className="w-4 h-4 text-white" />
             </div>
@@ -194,7 +194,7 @@ export default function LandingPage() {
           <h1
             className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.15] font-heading"
           >
-            You have a deadline in <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-400">3 days</span>.
+            You have a deadline in <span className="text-transparent bg-clip-text bg-linear-to-r from-rose-400 to-amber-400">3 days</span>.
             <br />
             <span className="gradient-text">CrunchAI has a plan.</span>
           </h1>
@@ -229,8 +229,8 @@ export default function LandingPage() {
       <section className="pb-24 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              Watch the agent <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 font-extrabold">think in real time</span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading">
+              Watch the agent <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-amber-400 font-extrabold">think in real time</span>
             </h2>
             <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
               Every tool call, input, and reasoning step is displayed. Full visibility into your sprint plan generation.
@@ -254,7 +254,7 @@ export default function LandingPage() {
             </div>
 
             {/* Terminal Screen */}
-            <div className="p-5 font-mono text-xs md:text-sm space-y-3 bg-zinc-950/70 min-h-[300px] flex flex-col justify-start">
+            <div className="p-5 font-mono text-xs md:text-sm space-y-3 bg-zinc-950/70 min-h-75 flex flex-col justify-start">
               <div className="flex items-center text-zinc-300">
                 <span className="text-indigo-400 mr-2">$</span>
                 <span>crunchai create --task &quot;{terminalText}&quot;</span>
@@ -342,7 +342,7 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-12 relative">
             {/* Connector line for desktop */}
-            <div className="hidden md:block absolute top-[44px] left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-cyan-500/20 z-0" />
+            <div className="hidden md:block absolute top-11 left-[15%] right-[15%] h-px bg-linear-to-r from-orange-500/20 via-amber-500/20 to-rose-500/20 z-0" />
 
             {[
               {
@@ -410,7 +410,7 @@ export default function LandingPage() {
                 <Icon
                   className="w-5 h-5 mx-auto mb-2 text-zinc-500 group-hover:text-cyan-400 transition-colors"
                 />
-                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-400">{component}</div>
+                <div className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-zinc-400">{component}</div>
                 <div
                   className="text-xs uppercase tracking-wider font-semibold mt-1.5 text-zinc-500"
                 >

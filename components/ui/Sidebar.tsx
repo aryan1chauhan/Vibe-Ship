@@ -77,7 +77,8 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
               <Link
                 key={href}
                 href={href}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group"
+                data-testid={`sidebar-nav-${label.toLowerCase()}`}
+                className="flex items-center gap-3 px-3.5 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden"
                 style={{
                   background: isActive ? 'var(--primary-glow)' : 'transparent',
                   color: isActive
@@ -97,9 +98,9 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
                   }
                 }}
               >
-                <Icon className="w-5 h-5 shrink-0" />
+                <Icon className="w-5 h-5 shrink-0 transition-transform duration-200 group-hover:scale-110" />
                 {!collapsed && (
-                  <span className="text-sm font-medium">{label}</span>
+                  <span className="text-sm font-semibold tracking-tight">{label}</span>
                 )}
               </Link>
             );
@@ -109,7 +110,8 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         {/* Collapse Button */}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="mx-3 mb-2 p-2 rounded-lg transition-colors cursor-pointer"
+          data-testid="sidebar-collapse-btn"
+          className="mx-3 mb-2 p-2 rounded-xl transition-all duration-200 cursor-pointer"
           style={{ color: 'var(--foreground-subtle)' }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = 'var(--surface)';
@@ -123,7 +125,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
           ) : (
             <div className="flex items-center gap-2">
               <ChevronLeft className="w-4 h-4" />
-              <span className="text-xs">Collapse</span>
+              <span className="text-xs font-medium">Collapse</span>
             </div>
           )}
         </button>
@@ -138,11 +140,11 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
               <img
                 src={userAvatar}
                 alt={userName || 'User'}
-                className="w-8 h-8 rounded-full shrink-0"
+                className="w-8 h-8 rounded-full shrink-0 ring-1 ring-white/10"
               />
             ) : (
               <div
-                className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 animate-pulse"
+                className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
                 style={{ background: 'var(--surface)' }}
               >
                 <User
@@ -153,7 +155,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
             )}
             {!collapsed && (
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate text-white">
+                <p className="text-sm font-semibold truncate text-white">
                   {userName || 'User'}
                 </p>
                 <p
@@ -166,17 +168,10 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
             )}
             <button
               onClick={handleLogout}
-              className="p-1.5 rounded-lg transition-colors shrink-0 cursor-pointer"
+              data-testid="sidebar-logout-btn"
+              className="p-2 rounded-xl transition-all duration-200 shrink-0 cursor-pointer hover:bg-rose-500/10 hover:text-rose-400"
               title="Sign out"
               style={{ color: 'var(--foreground-subtle)' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--surface)';
-                e.currentTarget.style.color = 'var(--danger)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = 'var(--foreground-subtle)';
-              }}
             >
               <LogOut className="w-4 h-4" />
             </button>
@@ -192,6 +187,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
             <Link
               key={href}
               href={href}
+              data-testid={`mobile-nav-${label.toLowerCase()}`}
               className={`bottom-nav-item ${isActive ? 'active' : ''}`}
             >
               <Icon className="w-5 h-5 mb-0.5" />
@@ -201,6 +197,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         })}
         <button
           onClick={handleLogout}
+          data-testid="mobile-logout-btn"
           className="bottom-nav-item hover:text-red-400"
         >
           <LogOut className="w-5 h-5 mb-0.5" />

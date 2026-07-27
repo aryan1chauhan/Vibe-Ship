@@ -453,7 +453,7 @@ export default function LandingPage() {
             <span className="text-sm font-bold text-white tracking-wider">CrunchAI</span>
           </div>
           <p className="text-xs text-zinc-500">
-            Built for BlockseBlock Hackathon 2025
+            Built for BlockseBlock Hackathon 2026
           </p>
         </div>
       </footer>

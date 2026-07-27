@@ -96,7 +96,8 @@ export function TaskCard({
   return (
     <Link
       href={`/tasks/${task.id}`}
-      className="glass glass-hover block p-5 transition-all duration-200 group"
+      data-testid={`task-card-${task.id}`}
+      className="glass glass-hover block p-5 transition-all duration-200 group relative overflow-hidden"
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 min-w-0">

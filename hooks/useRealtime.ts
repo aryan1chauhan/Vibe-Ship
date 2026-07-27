@@ -12,18 +12,21 @@ export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions
 
   useEffect(() => {
     const supabase = createClient();
+    let channel = supabase.channel('realtime-changes');
 
-    const channel = supabase
-      .channel('realtime-changes')
-      .on(
+    if (tables.includes('tasks')) {
+      channel = channel.on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'tasks' },
         () => {
           queryClient.invalidateQueries({ queryKey: ['tasks'] });
           queryClient.invalidateQueries({ queryKey: ['agent-brief'] });
         }
-      )
-      .on(
+      );
+    }
+
+    if (tables.includes('sprint_sessions')) {
+      channel = channel.on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'sprint_sessions' },
         () => {
@@ -31,8 +34,11 @@ export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions
           queryClient.invalidateQueries({ queryKey: ['tasks'] });
           queryClient.invalidateQueries({ queryKey: ['agent-brief'] });
         }
-      )
-      .on(
+      );
+    }
+
+    if (tables.includes('agent_events')) {
+      channel = channel.on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'agent_events' },
         () => {
@@ -40,11 +46,13 @@ export function useRealtime(tables: RealtimeTable[] = ['tasks', 'sprint_sessions
           queryClient.invalidateQueries({ queryKey: ['tasks'] });
           queryClient.invalidateQueries({ queryKey: ['agent-brief'] });
         }
-      )
-      .subscribe();
+      );
+    }
+
+    channel.subscribe();
 
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [queryClient]);
+  }, [queryClient, JSON.stringify(tables)]);
 }

@@ -57,7 +57,7 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         >
           <div className="flex items-center gap-3 overflow-hidden">
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-gradient-to-tr from-indigo-500 to-cyan-500"
+              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-gradient-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-md shadow-orange-500/20"
             >
               <Zap className="w-5 h-5 text-white" />
             </div>

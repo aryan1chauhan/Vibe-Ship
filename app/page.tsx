@@ -142,34 +142,34 @@ export default function LandingPage() {
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(800px circle at 50% -100px, rgba(124, 58, 237, 0.15), transparent 70%)',
+            background: 'radial-gradient(800px circle at 50% -100px, rgba(249, 115, 22, 0.16), transparent 70%)',
           }}
         />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyan-500/5 blur-[120px] animate-float" />
-        <div className="absolute top-1/3 right-1/4 w-[35rem] h-[35rem] rounded-full bg-indigo-500/5 blur-[150px] animate-float" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-amber-500/5 blur-[120px] animate-float" />
+        <div className="absolute top-1/3 right-1/4 w-[35rem] h-[35rem] rounded-full bg-rose-500/5 blur-[150px] animate-float" style={{ animationDelay: '-3s' }} />
       </div>
 
       {/* Navigation */}
       <nav
         className="fixed top-0 w-full z-50 border-b"
         style={{
-          background: 'rgba(9, 9, 11, 0.75)',
+          background: 'rgba(9, 10, 15, 0.85)',
           backdropFilter: 'blur(16px)',
           borderColor: 'rgba(255, 255, 255, 0.08)',
         }}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-tr from-indigo-500 to-cyan-500"
+              className="w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-md shadow-orange-500/20"
             >
               <Zap className="w-4 h-4 text-white" />
             </div>
-            <span className="font-bold text-lg tracking-wide text-white">CrunchAI</span>
+            <span className="font-bold text-lg tracking-tight text-white font-heading">CrunchAI</span>
           </div>
           <Link
             href="/login"
-            className="btn-primary text-sm shadow-lg shadow-indigo-500/20"
+            className="btn-primary text-sm shadow-lg shadow-orange-500/20"
             style={{ padding: '8px 20px' }}
           >
             Get Started <ArrowRight className="w-4 h-4" />
@@ -181,18 +181,18 @@ export default function LandingPage() {
       <section className="relative pt-32 pb-16 px-6 overflow-hidden">
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-8 border border-indigo-500/30"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-8 border border-amber-500/30"
             style={{
-              background: 'rgba(124, 58, 237, 0.08)',
+              background: 'rgba(249, 115, 22, 0.1)',
               color: 'var(--primary-light)',
             }}
           >
-            <Brain className="w-4 h-4 animate-pulse" />
+            <Brain className="w-4 h-4 animate-pulse text-amber-400" />
             Gemini 2.5 Powered · Autonomous Orchestration
           </div>
 
           <h1
-            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.15]"
+            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.15] font-heading"
           >
             You have a deadline in <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-400">3 days</span>.
             <br />
@@ -200,9 +200,9 @@ export default function LandingPage() {
           </h1>
 
           <p
-            className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-zinc-400"
+            className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-slate-400"
           >
-            An autonomous AI productivity agent that breaks down tasks into actionable subtasks, schedules sprint sessions, and <span className="text-cyan-400 font-medium">auto-replans</span> when you fall behind.
+            An autonomous AI productivity agent that breaks down tasks into actionable subtasks, schedules sprint sessions, and <span className="text-emerald-400 font-medium">auto-replans</span> when you fall behind.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

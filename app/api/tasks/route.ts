@@ -47,21 +47,35 @@ export async function POST(req: Request) {
     );
   }
 
-  const { data: task, error } = await supabase
+  const insertPayload: Record<string, any> = {
+    user_id: user.id,
+    title,
+    description: description || null,
+    deadline,
+    task_type: task_type || 'assignment',
+  };
+
+  let { data: task, error } = await supabase
     .from('tasks')
-    .insert({
-      user_id: user.id,
-      title,
-      description: description || null,
-      deadline,
-      task_type: task_type || 'assignment',
-    })
+    .insert(insertPayload)
     .select()
     .single();
+
+  if (error && (error.message?.includes('task_type') || error.code === '42703')) {
+    delete insertPayload.task_type;
+    const retry = await supabase
+      .from('tasks')
+      .insert(insertPayload)
+      .select()
+      .single();
+    task = retry.data;
+    error = retry.error;
+  }
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
 
   const { data: profile } = await supabase
     .from('profiles')

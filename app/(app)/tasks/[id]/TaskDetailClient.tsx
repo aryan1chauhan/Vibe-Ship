@@ -42,6 +42,7 @@ export function TaskDetailClient({
   useRealtime(['tasks', 'sprint_sessions', 'agent_events']);
   const { data } = useTaskQuery(initialTask.id);
   const [updatingSessionId, setUpdatingSessionId] = useState<string | null>(null);
+  const [isPlanning, setIsPlanning] = useState(false);
 
   const task = (data as any)?.task ?? initialTask;
   const subtasks = (data as any)?.subtasks ?? initialSubtasks;
@@ -50,6 +51,24 @@ export function TaskDetailClient({
 
   const completedSubtasks = subtasks.filter((s: Subtask) => s.status === 'completed').length;
   const progress = subtasks.length > 0 ? (completedSubtasks / subtasks.length) * 100 : 0;
+
+  const handleGeneratePlan = async () => {
+    setIsPlanning(true);
+    try {
+      const res = await fetch('/api/agent/plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ taskId: task.id }),
+      });
+      if (!res.ok) {
+        throw new Error('Failed to start planning');
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsPlanning(false);
+    }
+  };
 
   const handleUpdateSessionStatus = async (sessionId: string, newStatus: string) => {
     setUpdatingSessionId(sessionId);
@@ -169,10 +188,22 @@ export function TaskDetailClient({
           </h2>
 
           {subtasks.length === 0 ? (
-            <div className="glass p-6 text-center">
+            <div className="glass p-6 text-center space-y-4">
               <p style={{ color: 'var(--foreground-muted)' }} className="text-sm">
-                No subtasks yet. The AI agent will generate these when planning is triggered.
+                No subtasks yet. Click below to run the AI agent and generate your plan.
               </p>
+              <button
+                onClick={handleGeneratePlan}
+                disabled={isPlanning}
+                className="px-4 py-2 text-sm font-medium rounded-lg text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-md"
+                style={{
+                  background: 'var(--gradient-primary)',
+                  opacity: isPlanning ? 0.7 : 1,
+                }}
+              >
+                <Brain className="w-4 h-4" />
+                {isPlanning ? 'Generating AI Plan...' : 'Generate AI Plan'}
+              </button>
             </div>
           ) : (
             <div className="space-y-2">
@@ -289,10 +320,22 @@ export function TaskDetailClient({
         </div>
 
         <div>
-          <h2 className="text-lg font-semibold flex items-center gap-2 mb-4">
-            <Brain className="w-5 h-5" style={{ color: 'var(--primary-light)' }} />
-            Agent Log
-          </h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold flex items-center gap-2">
+              <Brain className="w-5 h-5" style={{ color: 'var(--primary-light)' }} />
+              Agent Log
+            </h2>
+            <button
+              onClick={handleGeneratePlan}
+              disabled={isPlanning}
+              className="text-xs px-2.5 py-1.5 rounded-md border border-white/10 hover:bg-white/5 transition-all flex items-center gap-1.5 cursor-pointer"
+              style={{ color: 'var(--foreground-muted)' }}
+              title="Re-run AI Planning"
+            >
+              <Brain className="w-3.5 h-3.5" />
+              {isPlanning ? 'Planning...' : 'Re-plan'}
+            </button>
+          </div>
           <AgentThinkingLog events={agentEvents} />
         </div>
       </div>

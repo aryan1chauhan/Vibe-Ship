@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import {
-  Zap,
   LayoutDashboard,
   ListTodo,
   Target,
@@ -57,9 +56,19 @@ export function Sidebar({ userName, userEmail, userAvatar }: SidebarProps) {
         >
           <div className="flex items-center gap-3 overflow-hidden">
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-linear-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-md shadow-orange-500/20"
+              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 overflow-hidden bg-zinc-900"
+              title="CrunchAI"
             >
-              <Zap className="w-5 h-5 text-white" />
+              <video
+                className="w-full h-full object-contain"
+                src="/crunchai-logo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              />
             </div>
             {!collapsed && (
               <span className="font-bold text-lg whitespace-nowrap text-white">

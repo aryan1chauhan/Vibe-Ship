@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
-  Zap,
   Brain,
   Calendar,
   RefreshCw,
@@ -160,10 +159,17 @@ export default function LandingPage() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div
-              className="w-8 h-8 rounded-xl flex items-center justify-center bg-linear-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-md shadow-orange-500/20"
-            >
-              <Zap className="w-4 h-4 text-white" />
+            <div className="w-8 h-8 rounded-xl overflow-hidden bg-zinc-900" title="CrunchAI">
+              <video
+                className="w-full h-full object-contain"
+                src="/crunchai-logo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              />
             </div>
             <span className="font-bold text-lg tracking-tight text-white font-heading">CrunchAI</span>
           </div>
@@ -449,7 +455,16 @@ export default function LandingPage() {
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-indigo-400" />
+            <video
+              className="w-4 h-4 rounded object-contain bg-zinc-900"
+              src="/crunchai-logo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+            />
             <span className="text-sm font-bold text-white tracking-wider">CrunchAI</span>
           </div>
           <p className="text-xs text-zinc-500">

@@ -1,7 +1,7 @@
 'use client';
 
 import { createClient } from '@/lib/supabase/client';
-import { Zap, Brain, Calendar, RefreshCw } from 'lucide-react';
+import { Brain, Calendar, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 
 export function LoginClient() {
@@ -38,9 +38,19 @@ export function LoginClient() {
       <div className="w-full max-w-md relative animate-fade-in">
         <div className="text-center mb-8">
           <div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 bg-linear-to-tr from-orange-500 via-amber-500 to-rose-500 shadow-lg shadow-orange-500/25"
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 overflow-hidden bg-zinc-900 shadow-lg shadow-orange-500/25"
+            title="CrunchAI"
           >
-            <Zap className="w-8 h-8 text-white" />
+            <video
+              className="w-full h-full object-contain"
+              src="/crunchai-logo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+            />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-white">
             Welcome to <span className="gradient-text">CrunchAI</span>

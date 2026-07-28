@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { geminiModel } from '@/lib/gemini';
+import { genAI } from '@/lib/gemini';
 import { AGENT_SYSTEM_PROMPT } from './prompts';
 import { AGENT_TOOLS } from './tools';
 import {
@@ -58,10 +58,14 @@ export async function runAgentLoop(
       message: 'Analyzing task and starting plan generation',
     });
 
-    const chat = geminiModel.startChat({
-      history: [],
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-2.0-flash',
       systemInstruction: AGENT_SYSTEM_PROMPT,
       tools: [{ functionDeclarations: AGENT_TOOLS as any }],
+    });
+
+    const chat = model.startChat({
+      history: [],
     });
 
     const userMessage = `Create a sprint plan for this task:

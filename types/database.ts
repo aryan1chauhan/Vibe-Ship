@@ -4,7 +4,7 @@
 
 
 export type TaskType = 'assignment' | 'project' | 'exam' | 'personal' | 'work';
-export type TaskStatus = 'planned' | 'active' | 'completed' | 'missed' | 'replanned';
+export type TaskStatus = 'planned' | 'active' | 'completed' | 'missed' | 'replanned' | 'needs_review';
 export type Priority = 'critical' | 'high' | 'medium' | 'low';
 export type RiskLevel = 'low' | 'medium' | 'high' | 'critical';
 export type SubtaskStatus = 'pending' | 'in_progress' | 'completed' | 'skipped';
@@ -20,6 +20,7 @@ export type AgentEventType =
   | 'tool_call'
   | 'tool_result'
   | 'thinking_complete'
+  | 'validation_failed'
   | 'error';
 
 

@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { NextResponse } from 'next/server';
+import { NextResponse, after } from 'next/server';
 import { runReplanLoop } from '@/lib/agent';
 
 export const dynamic = 'force-dynamic';
@@ -69,7 +69,9 @@ export async function PATCH(req: Request, { params }: RouteParams) {
       timezone: profile?.timezone ?? 'Asia/Kolkata',
     };
 
-    runReplanLoop(supabase, session.task_id, user.id, userPrefs);
+    after(async () => {
+      await runReplanLoop(supabase, session.task_id, user.id, userPrefs);
+    });
   }
 
   return NextResponse.json({ session });

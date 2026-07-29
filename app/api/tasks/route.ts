@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { NextResponse } from 'next/server';
+import { NextResponse, after } from 'next/server';
 import { runAgentLoop } from '@/lib/agent';
 
 export const dynamic = 'force-dynamic';
@@ -90,7 +90,9 @@ export async function POST(req: Request) {
     timezone: profile?.timezone ?? 'Asia/Kolkata',
   };
 
-  runAgentLoop(supabase, task.id, user.id, userPrefs);
+  after(async () => {
+    await runAgentLoop(supabase, task.id, user.id, userPrefs);
+  });
 
   return NextResponse.json({ task }, { status: 201 });
 }

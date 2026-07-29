@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   task_type TEXT DEFAULT 'assignment'
     CHECK (task_type IN ('assignment','project','exam','personal','work')),
   status TEXT DEFAULT 'planned'
-    CHECK (status IN ('planned','active','completed','missed','replanned')),
+    CHECK (status IN ('planned','active','completed','missed','replanned','needs_review')),
   priority TEXT DEFAULT 'medium'
     CHECK (priority IN ('critical','high','medium','low')),
   estimated_hours DECIMAL(4,1),

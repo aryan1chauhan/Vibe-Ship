@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens ─── */
+/* ─── Design Tokens (UI-UX Pro Max + Huashu Standard) ─── */
 
 :root {
   /* Base palette - Light mode */
@@ -22,8 +22,8 @@
   --muted: 240 4.8% 95.9%;
   --muted-foreground: 240 3.8% 46.1%;
 
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
@@ -38,7 +38,7 @@
   --input: 240 5.9% 90%;
   --ring: 160 84% 39%;
 
-  --radius: 0.625rem;
+  --radius: 0.75rem;
 
   /* Chart colors */
   --chart-1: 160 84% 39%;
@@ -46,39 +46,29 @@
   --chart-3: 280 68% 50%;
   --chart-4: 38 92% 50%;
   --chart-5: 0 84% 60%;
-
-  /* Sidebar */
-  --sidebar: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 160 84% 39%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 160 84% 39%;
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
+  --background: 224 71% 4%;
+  --foreground: 210 40% 98%;
 
-  --card: 240 6% 6%;
-  --card-foreground: 0 0% 98%;
+  --card: 224 71% 7%;
+  --card-foreground: 210 40% 98%;
 
-  --popover: 240 6% 6%;
-  --popover-foreground: 0 0% 98%;
+  --popover: 224 71% 7%;
+  --popover-foreground: 210 40% 98%;
 
   --primary: 160 84% 39%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
+  --secondary: 224 50% 12%;
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
+  --muted: 224 40% 12%;
+  --muted-foreground: 215 20.2% 65.1%;
 
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
@@ -89,19 +79,9 @@
   --success: 160 84% 39%;
   --success-foreground: 0 0% 100%;
 
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
+  --border: 224 40% 16%;
+  --input: 224 40% 16%;
   --ring: 160 84% 39%;
-
-  /* Sidebar dark */
-  --sidebar: 240 6% 6%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 160 84% 39%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 160 84% 39%;
 }
 
 /* ─── Tailwind v4 Theme Inline ─── */
@@ -141,21 +121,6 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
-
-  --color-sidebar: hsl(var(--sidebar));
-  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
-  --color-sidebar-primary: hsl(var(--sidebar-primary));
-  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
-  --color-sidebar-accent: hsl(var(--sidebar-accent));
-  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
-  --color-sidebar-border: hsl(var(--sidebar-border));
-  --color-sidebar-ring: hsl(var(--sidebar-ring));
-
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -164,14 +129,15 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 
-  /* Animations */
+  /* Animations (Huashu & UI/UX Pro Max) */
   --animate-fade-in: fade-in 0.3s ease-out;
-  --animate-fade-in-up: fade-in-up 0.4s ease-out;
+  --animate-fade-in-up: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --animate-slide-in-right: slide-in-right 0.3s ease-out;
   --animate-slide-in-left: slide-in-left 0.3s ease-out;
-  --animate-scale-in: scale-in 0.2s ease-out;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-spin-slow: spin 3s linear infinite;
+  --animate-scale-in: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 4s linear infinite;
 
   @keyframes fade-in {
     from { opacity: 0; }
@@ -179,28 +145,33 @@
   }
 
   @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes slide-in-right {
-    from { opacity: 0; transform: translateX(12px); }
+    from { opacity: 0; transform: translateX(16px); }
     to { opacity: 1; transform: translateX(0); }
   }
 
   @keyframes slide-in-left {
-    from { opacity: 0; transform: translateX(-12px); }
+    from { opacity: 0; transform: translateX(-16px); }
     to { opacity: 1; transform: translateX(0); }
   }
 
   @keyframes scale-in {
-    from { opacity: 0; transform: scale(0.95); }
+    from { opacity: 0; transform: scale(0.96); }
     to { opacity: 1; transform: scale(1); }
   }
 
   @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 0 0 hsl(160 84% 39% / 0); }
-    50% { box-shadow: 0 0 16px 4px hsl(160 84% 39% / 0.15); }
+    50% { box-shadow: 0 0 24px 6px hsl(160 84% 39% / 0.25); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 }
 
@@ -211,7 +182,7 @@
 }
 
 body {
-  background: hsl(var(--background));
+  background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -238,7 +209,38 @@ body {
   background: hsl(var(--muted-foreground) / 0.4);
 }
 
-/* ─── Focus Ring Utility ─── */
+/* ─── Glass Morphism & Ambient Aesthetics ─── */
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--card) / 0.75) 0%,
+    hsl(var(--card) / 0.4) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--border) / 0.5);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: hsl(var(--primary) / 0.4);
+  box-shadow: 0 12px 40px 0 hsl(160 84% 39% / 0.15);
+  transform: translateY(-2px);
+}
+
+/* Ambient floating mesh background */
+.ambient-bg {
+  background-color: hsl(var(--background));
+  background-image: 
+    radial-gradient(at 0% 0%, hsl(160 84% 39% / 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsl(200 84% 45% / 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsl(160 84% 39% / 0.05) 0px, transparent 60%);
+}
 
 .focus-ring {
   outline: none;
@@ -248,24 +250,4 @@ body {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
   border-radius: var(--radius);
-}
-
-/* ─── Glass Morphism Utility ─── */
-
-.glass {
-  background: hsl(var(--card) / 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid hsl(var(--border) / 0.4);
-}
-
-/* ─── Gradient Background ─── */
-
-.gradient-bg {
-  background: radial-gradient(
-    ellipse at top,
-    hsl(160 84% 39% / 0.08) 0%,
-    transparent 50%
-  ),
-  hsl(var(--background));
 }

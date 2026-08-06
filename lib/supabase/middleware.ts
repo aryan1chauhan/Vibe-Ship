@@ -37,15 +37,22 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   // Protected routes: redirect unauthenticated users to /login
-  const isProtectedRoute =
-    !request.nextUrl.pathname.startsWith("/login") &&
-    !request.nextUrl.pathname.startsWith("/callback") &&
-    !request.nextUrl.pathname.startsWith("/api/webhooks") &&
-    request.nextUrl.pathname !== "/";
+  const isPublicRoute =
+    request.nextUrl.pathname.startsWith("/login") ||
+    request.nextUrl.pathname.startsWith("/callback") ||
+    request.nextUrl.pathname.startsWith("/api/webhooks");
 
-  if (!user && isProtectedRoute) {
+  // Redirect unauthenticated users to /login
+  if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
+    return NextResponse.redirect(url);
+  }
+
+  // Redirect authenticated users away from /login to /
+  if (user && request.nextUrl.pathname === "/login") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
     return NextResponse.redirect(url);
   }
 

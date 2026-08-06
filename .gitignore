@@ -23,8 +23,7 @@
 # misc
 .DS_Store
 *.pem
-.firebase/
-firebase-debug.log
+Thumbs.db
 
 # debug
 npm-debug.log*
@@ -32,9 +31,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
-.env*
-!.env.example
+# env files — NEVER commit secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
 
 # vercel
 .vercel
@@ -42,3 +45,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Supabase local
+supabase/.temp/

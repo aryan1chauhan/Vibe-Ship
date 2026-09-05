@@ -41,7 +41,7 @@ Always follow the specific instructions and guidelines from these project skills
 - **`zod-validation-expert`**: Type-safe runtime schema validation for API request payloads.
 - **`vitest-skill`**: Vitest unit testing, test fixtures, and assertion patterns.
 - **`api-security-best-practices`**: API protection, rate limiting, CSRF defense, and request guards.
-- **`whatsapp-cloud-api`**: WhatsApp Cloud API integration for Meta message delivery.
+- **`stitch-design-taste`**: Semantic Design System Skill for Google Stitch UI generation, DESIGN.md specification, and token synchronization.
 - **`nextjs-seo-indexing`**: Next.js SEO optimization, OpenGraph cards, Metadata API, and JSON-LD schemas.
 
 # Available MCP Servers & Tools

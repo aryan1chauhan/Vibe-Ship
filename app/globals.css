@@ -235,11 +235,19 @@ body {
 
 /* Ambient floating mesh background */
 .ambient-bg {
-  background-color: hsl(var(--background));
+  background-color: #06090e;
   background-image: 
-    radial-gradient(at 0% 0%, hsl(160 84% 39% / 0.12) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsl(200 84% 45% / 0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, hsl(160 84% 39% / 0.05) 0px, transparent 60%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, hsl(160 84% 39% / 0.18), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, hsl(199 89% 48% / 0.08), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 100%, hsl(160 84% 39% / 0.08), transparent);
+  background-attachment: fixed;
+}
+
+.bg-grid-pattern {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .focus-ring {

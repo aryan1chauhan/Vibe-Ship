@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
+import { ReticleDev } from "./reticle-dev";
 import "./globals.css";
 
 const inter = Inter({
@@ -45,7 +46,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${geistMono.variable} dark h-full`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <body className="min-h-full flex flex-col antialiased">
+        {process.env.NODE_ENV === "development" && <ReticleDev />}
+        {children}
+      </body>
     </html>
   );
 }

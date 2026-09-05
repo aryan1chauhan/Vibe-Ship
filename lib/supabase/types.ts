@@ -25,6 +25,7 @@ export type Database = {
           email?: string | null;
           updated_at?: string;
         };
+        Relationships: [];
       };
       tasks: {
         Row: {
@@ -72,6 +73,15 @@ export type Database = {
           ai_metadata?: Record<string, unknown>;
           updated_at?: string;
         };
+        Relationships: [
+          {
+            foreignKeyName: "tasks_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       subtasks: {
         Row: {
@@ -101,6 +111,15 @@ export type Database = {
           sequence?: number;
           is_completed?: boolean;
         };
+        Relationships: [
+          {
+            foreignKeyName: "subtasks_task_id_fkey";
+            columns: ["task_id"];
+            isOneToOne: false;
+            referencedRelation: "tasks";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       sessions: {
         Row: {
@@ -133,6 +152,22 @@ export type Database = {
           started_at?: string | null;
           completed_at?: string | null;
         };
+        Relationships: [
+          {
+            foreignKeyName: "sessions_task_id_fkey";
+            columns: ["task_id"];
+            isOneToOne: false;
+            referencedRelation: "tasks";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "sessions_subtask_id_fkey";
+            columns: ["subtask_id"];
+            isOneToOne: false;
+            referencedRelation: "subtasks";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       agent_logs: {
         Row: {
@@ -163,7 +198,35 @@ export type Database = {
           tool_output?: Record<string, unknown>;
           status?: "running" | "completed" | "error";
         };
+        Relationships: [
+          {
+            foreignKeyName: "agent_logs_task_id_fkey";
+            columns: ["task_id"];
+            isOneToOne: false;
+            referencedRelation: "tasks";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "agent_logs_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
       };
+    };
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      [_ in never]: never;
+    };
+    Enums: {
+      [_ in never]: never;
+    };
+    CompositeTypes: {
+      [_ in never]: never;
     };
   };
 };

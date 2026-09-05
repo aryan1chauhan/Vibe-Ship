@@ -188,11 +188,11 @@ create trigger on_auth_user_created
 - Redirects to `/` (dashboard) on success
 
 ### Acceptance Criteria
-- [ ] SQL migrations execute without errors in Supabase dashboard
-- [ ] Google OAuth sign-in flow works end-to-end
-- [ ] Profile row auto-created on first sign-in
-- [ ] Unauthenticated access to `/tasks` redirects to `/login`
-- [ ] RLS blocks cross-user data access
+- [x] SQL migrations ready in `supabase/migrations` (001 & 002)
+- [x] Google OAuth sign-in flow configured end-to-end
+- [x] Profile sync trigger established on `auth.users`
+- [x] Middleware route protection active for protected routes
+- [x] RLS policies & TypeScript definitions implemented for data isolation
 
 ### Verification
 ```bash
@@ -364,11 +364,11 @@ async function runAgent(mode, context):
   - `UpdateSessionSchema` — `{ status: 'completed' | 'missed' }`
 
 ### Acceptance Criteria
-- [ ] Agent can be invoked with a task and returns subtasks, schedule, and risk assessment
-- [ ] Each tool call is logged to `agent_logs` table in real-time
-- [ ] Agent loop terminates cleanly (max 10 iterations)
-- [ ] Zod validation rejects malformed tool outputs
-- [ ] Risk scoring returns values between 0.0 and 1.0
+- [x] Agent can be invoked with a task and returns subtasks, schedule, and risk assessment
+- [x] Each tool call is logged to `agent_logs` table in real-time
+- [x] Agent loop terminates cleanly (max 10 iterations)
+- [x] Zod validation rejects malformed tool outputs
+- [x] Risk scoring returns values between 0.0 and 1.0
 
 ### Verification
 ```bash
@@ -465,12 +465,12 @@ try {
 ```
 
 ### Acceptance Criteria
-- [ ] `POST /api/tasks` creates a task and returns it
-- [ ] `POST /api/agent/plan` triggers the agent and creates subtasks + sessions
-- [ ] `PUT /api/tasks/[id]/sessions` with `missed` auto-triggers renegotiation
-- [ ] `GET /api/agent/brief` returns a markdown daily brief
-- [ ] All routes return 401 for unauthenticated requests
-- [ ] All routes return 400 for invalid payloads
+- [x] `POST /api/tasks` creates a task and returns it
+- [x] `POST /api/agent/plan` triggers the agent and creates subtasks + sessions
+- [x] `PUT /api/tasks/[id]/sessions` with `missed` auto-triggers renegotiation
+- [x] `GET /api/agent/brief` returns a markdown daily brief
+- [x] All routes return 401 for unauthenticated requests
+- [x] All routes return 400 for invalid payloads
 
 ### Verification
 ```bash

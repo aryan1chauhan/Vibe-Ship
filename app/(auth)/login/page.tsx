@@ -44,9 +44,10 @@ function LoginForm() {
       if (data?.url) {
         window.location.href = data.url;
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Sign-in exception:", err);
-      setErrorMsg(err.message || "An unexpected error occurred.");
+      const message = err instanceof Error ? err.message : "An unexpected error occurred.";
+      setErrorMsg(message);
       setIsLoading(false);
     }
   };

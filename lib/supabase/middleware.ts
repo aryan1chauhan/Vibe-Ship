@@ -36,11 +36,18 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Protected routes: redirect unauthenticated users to /login
+  const pathname = request.nextUrl.pathname;
+
+  // Let API routes handle authentication internally (returning 401 JSON)
+  if (pathname.startsWith("/api/")) {
+    return supabaseResponse;
+  }
+
+  // Protected page routes: redirect unauthenticated users to /login
   const isPublicRoute =
-    request.nextUrl.pathname.startsWith("/login") ||
-    request.nextUrl.pathname.startsWith("/callback") ||
-    request.nextUrl.pathname.startsWith("/api/webhooks");
+    pathname === "/" ||
+    pathname.startsWith("/login") ||
+    pathname.startsWith("/callback");
 
   // Redirect unauthenticated users to /login
   if (!user && !isPublicRoute) {

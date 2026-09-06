@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
+import { Providers } from "@/components/layout/providers";
 import { ReticleDev } from "./reticle-dev";
 import "./globals.css";
 
@@ -48,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col antialiased">
         {process.env.NODE_ENV === "development" && <ReticleDev />}
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

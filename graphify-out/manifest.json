@@ -1,0 +1,314 @@
+{
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\eslint.config.mjs": {
+    "mtime": 1788544605.2028234,
+    "hash": "574fd907f7cd75b2c86ec2cf71fdfb27"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\middleware.ts": {
+    "mtime": 1786098266.8146064,
+    "hash": "4e3a286a83467320d2b1c26d257daecb"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\next-env.d.ts": {
+    "mtime": 1788631046.8585641,
+    "hash": "aa94238a90e7d04b7a47ecc3145ba6a0"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\next.config.ts": {
+    "mtime": 1786017039.9672186,
+    "hash": "be7482fed569ecd1380beecf42b6528d"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\postcss.config.mjs": {
+    "mtime": 1786012487.8420994,
+    "hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\layout.tsx": {
+    "mtime": 1788714722.4285197,
+    "hash": "559dcf3d3aef40193debfb2143649bd4"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\page.tsx": {
+    "mtime": 1788714850.181218,
+    "hash": "0bd8049ed7579af26bae039a891c708e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\reticle-dev.tsx": {
+    "mtime": 1788630685.380762,
+    "hash": "ef7ee98db33ef9de84a76a9d33fab7f5"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(auth)\\callback\\route.ts": {
+    "mtime": 1786014639.5010116,
+    "hash": "fba09d3a4531157277ee186813922287"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(auth)\\login\\page.tsx": {
+    "mtime": 1788631678.0983868,
+    "hash": "56d6a7f839f31adcc3288750d5cf4d0d"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(dashboard)\\layout.tsx": {
+    "mtime": 1788714792.6610365,
+    "hash": "b66583ca226130c6532a40bea7a75ec1"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(dashboard)\\agent-log\\page.tsx": {
+    "mtime": 1788716665.8190174,
+    "hash": "df3d11673c2ea4bc059c882ed255af9a"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(dashboard)\\dashboard\\page.tsx": {
+    "mtime": 1788714835.8227928,
+    "hash": "fad510909745ea5a0f131f51277d38a4"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(dashboard)\\focus\\page.tsx": {
+    "mtime": 1788716653.781047,
+    "hash": "bfc33d207edfddf8511b2ab2aec13d17"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\(dashboard)\\tasks\\page.tsx": {
+    "mtime": 1788716643.0305753,
+    "hash": "050811947316f97e3a1e738f31164cd7"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\agent\\brief\\route.ts": {
+    "mtime": 1788628738.363971,
+    "hash": "bc3c8aa2e2728085ab515d01599b08eb"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\agent\\plan\\route.ts": {
+    "mtime": 1788629758.5880663,
+    "hash": "f539ca4e653636905c2225b0ba3d7279"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\agent\\prioritize\\route.ts": {
+    "mtime": 1788628754.030779,
+    "hash": "1238b2e3fb9a8e3eaf82731887f18399"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\agent\\renegotiate\\route.ts": {
+    "mtime": 1788629766.493963,
+    "hash": "59d47d71be7c1a5a32ce61877acad7c2"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\sessions\\today\\route.ts": {
+    "mtime": 1788714758.907573,
+    "hash": "7d7bf2c7b83deb10e0c4c4f07fc5e7a6"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\tasks\\route.ts": {
+    "mtime": 1788629719.4543529,
+    "hash": "2cadb19d3f4332e46f42775119bcf8dd"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\tasks\\[id]\\route.ts": {
+    "mtime": 1788629736.31255,
+    "hash": "c1f78fe953b2ae0194da0e85e677828d"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\app\\api\\tasks\\[id]\\sessions\\route.ts": {
+    "mtime": 1788629750.044057,
+    "hash": "ae02e6e63a3aa66260d25c16ea27a574"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\dashboard\\daily-brief.tsx": {
+    "mtime": 1788714810.5522766,
+    "hash": "4bf36ee3d21f214d0260ee8d55dcca1e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\dashboard\\risk-banner.tsx": {
+    "mtime": 1788715883.1736138,
+    "hash": "6b330cedc196f329a2fb8d6b653880fa"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\dashboard\\task-progress-ring.tsx": {
+    "mtime": 1788714818.1429765,
+    "hash": "6464444bd167e764375c434ec1265ceb"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\dashboard\\upcoming-sessions.tsx": {
+    "mtime": 1788714827.9638968,
+    "hash": "4dfa4e6b2134b6e8b4e1ba14689e2dfe"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\layout\\dashboard-shell.tsx": {
+    "mtime": 1788714787.1961026,
+    "hash": "08a0d42996d2bfc292b1779bf6e0984f"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\layout\\header.tsx": {
+    "mtime": 1788715891.0511048,
+    "hash": "82712b232a34b771abff50383e384eab"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\layout\\providers.tsx": {
+    "mtime": 1788714699.1902573,
+    "hash": "7e0a26f06f7f39d1d3481e2f3e134458"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\layout\\sidebar.tsx": {
+    "mtime": 1788714768.9584916,
+    "hash": "14d2b7a9ad4a319c8d03045ecf5ae404"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\avatar.tsx": {
+    "mtime": 1786013827.415264,
+    "hash": "c0136d9a1c07129863348811dcc037e0"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\badge.tsx": {
+    "mtime": 1786013826.3873992,
+    "hash": "8510911fff59be294d64dbfc67f5c710"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\button.tsx": {
+    "mtime": 1786013824.3169868,
+    "hash": "5eb5c23dfc552fe75b9beeffacede350"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\card.tsx": {
+    "mtime": 1786013824.8162804,
+    "hash": "5f465338c9c83716fd67bba76b9852d4"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\dialog.tsx": {
+    "mtime": 1786013825.3058968,
+    "hash": "716542a167fb7bda2fea4df346c54075"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\dropdown-menu.tsx": {
+    "mtime": 1786013827.0546522,
+    "hash": "687ccb0d62020e2e0f9c1d894a825bd4"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\input.tsx": {
+    "mtime": 1786013825.6689365,
+    "hash": "186052fef4d6a678824a3ac70ec3bdec"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\label.tsx": {
+    "mtime": 1786013826.006746,
+    "hash": "e7e0c4ad98f3485ecd3c0ca516d0a8bf"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\progress.tsx": {
+    "mtime": 1786013828.5459976,
+    "hash": "ca99607c05ca0555bcb95eff552e64dc"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\separator.tsx": {
+    "mtime": 1786013826.6973276,
+    "hash": "31309c8fad1e9a91db2a4bdfb4988b45"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\sheet.tsx": {
+    "mtime": 1786013827.7804205,
+    "hash": "70f191fcbd262095ddd6afbcc8bbf99d"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\sonner.tsx": {
+    "mtime": 1786013828.8424573,
+    "hash": "5dde0d04f3ecf6b5e812104aca12c546"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\components\\ui\\tabs.tsx": {
+    "mtime": 1786013828.172899,
+    "hash": "3db2474e4c66b1e544bb514bf1024612"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\utils.ts": {
+    "mtime": 1786013716.7172487,
+    "hash": "618d00bf4537ce84f9ba62c5b215fb30"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\gemini\\agent.ts": {
+    "mtime": 1788544595.8743663,
+    "hash": "e4f069ad39fb461c90e5171011a07aaa"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\gemini\\client.ts": {
+    "mtime": 1788543170.426457,
+    "hash": "8551cb82fc025a6ce1c3656c4d9875e2"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\gemini\\prompts.ts": {
+    "mtime": 1788543244.97395,
+    "hash": "a3af79ed3be19d2b535640949ff4086e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\gemini\\schemas.ts": {
+    "mtime": 1788543182.4282575,
+    "hash": "3a350a4ca185ab9a1b71c5098a904f03"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\gemini\\tool-handlers.ts": {
+    "mtime": 1788544552.0111012,
+    "hash": "7b805451e1367f364394aca2a7b767f3"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\gemini\\tools.ts": {
+    "mtime": 1788543235.0660892,
+    "hash": "845e3575095249b0d8a2ce35d133c6a8"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\hooks\\use-daily-brief.ts": {
+    "mtime": 1788714752.0427516,
+    "hash": "82d26b1871ee8ab7c51032140b2b3409"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\hooks\\use-tasks.ts": {
+    "mtime": 1788714746.4343812,
+    "hash": "239695dac4ffa47a3255abf2db45884e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\supabase\\client.ts": {
+    "mtime": 1786014605.6131563,
+    "hash": "9441f97174152128acc4e38e32858031"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\supabase\\middleware.ts": {
+    "mtime": 1788629687.6870203,
+    "hash": "f58f5d04b73c9259fc641b8b0a4e14ec"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\supabase\\server.ts": {
+    "mtime": 1786014611.3500063,
+    "hash": "1ee3dcaa48b557102a5180215924857a"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\supabase\\types.ts": {
+    "mtime": 1788629018.0787852,
+    "hash": "cd7c2ddea659629622d758ab3a3f9c4f"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\utils\\format.ts": {
+    "mtime": 1788543213.747412,
+    "hash": "99f980a45432a7db4e7633f1267f5bae"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\utils\\risk.ts": {
+    "mtime": 1788544397.8706162,
+    "hash": "2105dcae648df7afd8835d9aa13c6fd6"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\utils\\schedule.ts": {
+    "mtime": 1788544635.039481,
+    "hash": "4eec08934dcb4978230b0717ed0f466e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\lib\\validators\\task.ts": {
+    "mtime": 1788543220.8563952,
+    "hash": "5419c72793959407351b91b6de6f8c02"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\supabase\\migrations\\001_initial_schema.sql": {
+    "mtime": 1786014564.1792295,
+    "hash": "7c489a2396b92c6abd95a20f2bf2e438"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\supabase\\migrations\\002_profile_sync_trigger.sql": {
+    "mtime": 1786014578.3660386,
+    "hash": "520bef33348c0f26da8730bb2dd65791"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\tests\\phase3.test.ts": {
+    "mtime": 1788544173.352619,
+    "hash": "7c582a25b9e1e2d17bbb442929d6eefb"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\tests\\phase4.test.ts": {
+    "mtime": 1788629794.472238,
+    "hash": "8b446f11d647c0f0282a3bfc59867ad1"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\tests\\phase5.test.ts": {
+    "mtime": 1788715896.0639844,
+    "hash": "71c2c2f5d8910b6426aaa7b69717fa28"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\AGENTS.md": {
+    "mtime": 1788630760.647538,
+    "hash": "3948aa24c0953bd5f64ff06f4e861cd3"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\CLAUDE.md": {
+    "mtime": 1786012808.1620915,
+    "hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\README.md": {
+    "mtime": 1786012487.7539656,
+    "hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\docs\\architecture.md": {
+    "mtime": 1786012395.1057422,
+    "hash": "2f72af09312d92af16cfb2e9726ca9bc"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\docs\\edge-cases.md": {
+    "mtime": 1786013507.4709027,
+    "hash": "61505b1469ae9e611ae0312b0c62ed70"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\docs\\implementation-plan.md": {
+    "mtime": 1788629116.4318812,
+    "hash": "8126eeb3575e2901b1aed3f38994fa94"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\docs\\problem statement.md": {
+    "mtime": 1786011902.1976054,
+    "hash": "590942e62f2114ad7066146cd0203b14"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\public\\file.svg": {
+    "mtime": 1786012487.8537312,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\public\\globe.svg": {
+    "mtime": 1786012487.872995,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\public\\next.svg": {
+    "mtime": 1786012487.8982053,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\public\\vercel.svg": {
+    "mtime": 1786012487.9177554,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "C:\\Users\\ARYAN\\vibe-ship\\crunchai\\public\\window.svg": {
+    "mtime": 1786012487.9387612,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  }
+}

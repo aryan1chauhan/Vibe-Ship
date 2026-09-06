@@ -97,7 +97,7 @@ export function Sidebar({ user, onNavigate, className }: SidebarProps) {
           className="flex items-center gap-3 group"
           onClick={onNavigate}
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-emerald-950/40 border border-primary/40 flex items-center justify-center font-extrabold text-primary text-xl shadow-inner group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary/30 to-emerald-950/40 border border-primary/40 flex items-center justify-center font-extrabold text-primary text-xl shadow-inner group-hover:scale-105 transition-transform">
             C
           </div>
           <div>
@@ -155,7 +155,7 @@ export function Sidebar({ user, onNavigate, className }: SidebarProps) {
 
         {/* Pro / Agent Status Card in Sidebar */}
         <div className="pt-6 px-1">
-          <div className="rounded-2xl p-4 bg-gradient-to-br from-primary/10 via-background/40 to-background/20 border border-primary/20 relative overflow-hidden">
+          <div className="rounded-2xl p-4 bg-linear-to-br from-primary/10 via-background/40 to-background/20 border border-primary/20 relative overflow-hidden">
             <div className="flex items-center gap-2 mb-2">
               <Zap className="h-4 w-4 text-primary animate-pulse" />
               <span className="text-xs font-bold text-foreground">

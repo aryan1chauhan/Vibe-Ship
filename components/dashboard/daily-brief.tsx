@@ -89,7 +89,7 @@ export function DailyBrief() {
       {/* Header Bar */}
       <div className="flex items-center justify-between border-b border-border/30 pb-4 relative z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary/30 to-emerald-950/40 border border-primary/30 flex items-center justify-center text-primary shadow-inner">
+          <div className="w-10 h-10 rounded-2xl bg-linear-to-br from-primary/30 to-emerald-950/40 border border-primary/30 flex items-center justify-center text-primary shadow-inner">
             <Sparkles className="h-5 w-5" />
           </div>
           <div>

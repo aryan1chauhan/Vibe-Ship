@@ -114,7 +114,7 @@ function LoginForm() {
 
   return (
     <div
-      className="relative p-[1px] rounded-[28px] bg-gradient-to-b from-white/15 via-white/5 to-emerald-500/20 shadow-2xl shadow-black/80 animate-fade-in-up"
+      className="relative p-px rounded-[28px] bg-linear-to-b from-white/15 via-white/5 to-emerald-500/20 shadow-2xl shadow-black/80 animate-fade-in-up"
       data-testid="login-card-container"
     >
       <div
@@ -131,7 +131,7 @@ function LoginForm() {
           data-testid="brand-header"
         >
           {/* Logo Badge with Glowing Radar Ring */}
-          <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-b from-emerald-500/20 to-emerald-950/40 border border-emerald-500/30 shadow-lg shadow-emerald-950/40">
+          <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl bg-linear-to-b from-emerald-500/20 to-emerald-950/40 border border-emerald-500/30 shadow-lg shadow-emerald-950/40">
             <span className="text-2xl font-black text-emerald-400 tracking-tight">
               C
             </span>
@@ -239,7 +239,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen ambient-bg bg-grid-pattern relative flex items-center justify-center p-4 sm:p-6 overflow-hidden">
       {/* Centered ambient luminous aura */}
-      <div className="absolute w-[600px] h-[600px] bg-emerald-500/[0.07] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute w-150 h-150 bg-emerald-500/[0.07] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="w-full max-w-lg mx-auto relative z-10">
         <Suspense

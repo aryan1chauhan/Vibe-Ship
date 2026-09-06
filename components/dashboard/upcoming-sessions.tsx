@@ -53,7 +53,7 @@ export function UpcomingSessions() {
       {/* Header Bar */}
       <div className="flex items-center justify-between border-b border-border/30 pb-4 relative z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-cyan-500/30 to-blue-950/40 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-inner">
+          <div className="w-10 h-10 rounded-2xl bg-linear-to-br from-cyan-500/30 to-blue-950/40 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-inner">
             <Clock className="h-5 w-5" />
           </div>
           <div>

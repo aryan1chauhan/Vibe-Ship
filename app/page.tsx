@@ -32,13 +32,13 @@ export default async function LandingPage() {
   return (
     <div className="min-h-screen ambient-bg flex flex-col relative overflow-hidden">
       {/* Ambient background glow orbs */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-[600px] right-0 w-[500px] h-[350px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-175 h-100 bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-150 right-0 w-125 h-87.5 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Navigation Header */}
       <header className="h-20 border-b border-border/30 bg-card/40 backdrop-blur-xl px-6 sm:px-12 flex items-center justify-between sticky top-0 z-40">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-emerald-950/40 border border-primary/40 flex items-center justify-center font-black text-primary text-xl shadow-inner group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary/30 to-emerald-950/40 border border-primary/40 flex items-center justify-center font-black text-primary text-xl shadow-inner group-hover:scale-105 transition-transform">
             C
           </div>
           <div className="flex items-center gap-2">

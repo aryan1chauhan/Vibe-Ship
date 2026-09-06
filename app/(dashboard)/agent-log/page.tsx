@@ -80,7 +80,7 @@ export default function AgentLogPage() {
         </div>
 
         {/* Terminal Body */}
-        <div className="p-6 space-y-4 max-h-[600px] overflow-y-auto">
+        <div className="p-6 space-y-4 max-h-150 overflow-y-auto">
           <div className="text-muted-foreground/80 flex items-center gap-2">
             <span className="text-primary font-bold">&gt;</span>
             <span>Agent initialized. Registered 6 function tools with Gemini 2.5 Flash API.</span>
@@ -89,7 +89,7 @@ export default function AgentLogPage() {
           {sampleSteps.map((step, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2"
+              className="p-4 rounded-2xl bg-white/3 border border-white/5 space-y-2"
             >
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2">

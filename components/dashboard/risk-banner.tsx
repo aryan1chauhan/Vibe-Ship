@@ -27,7 +27,7 @@ export function RiskBanner() {
   return (
     <div
       id="risk-section"
-      className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-red-950/40 via-amber-950/30 to-background/50 border border-red-500/30 shadow-lg shadow-red-950/20 relative overflow-hidden animate-fade-in"
+      className="mb-8 p-4 sm:p-5 rounded-2xl bg-linear-to-r from-red-950/40 via-amber-950/30 to-background/50 border border-red-500/30 shadow-lg shadow-red-950/20 relative overflow-hidden animate-fade-in"
       data-testid="dashboard-risk-banner"
     >
       <div className="absolute top-0 right-0 -mt-8 -mr-8 w-36 h-36 bg-red-500/10 rounded-full blur-2xl pointer-events-none" />
